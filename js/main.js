@@ -129,33 +129,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
   });
 });
 
-/* ------------------------------------------
-   8. トレーナー紹介スライダー（Swiper.js v11 / about.html）
-   ------------------------------------------ */
-if (document.querySelector('.trainer-swiper')) {
-  new Swiper('.trainer-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 24,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      prevEl: '.swiper-button-prev',
-      nextEl: '.swiper-button-next',
-    },
-    breakpoints: {
-      // タブレット以上では2枚並び
-      768: {
-        slidesPerView: 2,
-      },
-      // PC以上では3枚並び
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-  });
-}
+/* 8. トレーナースライダーは削除済み（グリッドレイアウトに変更） */
 
 /* ------------------------------------------
    9. カテゴリー絞り込みフィルター（news.html）
