@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Swiper.js v11 CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- Font Awesome（アイコン） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- 共通CSS -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/pages.css">
@@ -37,6 +37,7 @@
           <li><a href="./about.html" class="active">ジム紹介</a></li>
           <li><a href="./news.html">お知らせ</a></li>
           <li><a href="./contact.html">お問い合わせ</a></li>
+          <li><a href="./sponsor.html">スポンサー</a></li>
         </ul>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
@@ -51,6 +52,7 @@
         <li><a href="./about.html">ジム紹介</a></li>
         <li><a href="./news.html">お知らせ</a></li>
         <li><a href="./contact.html">お問い合わせ</a></li>
+        <li><a href="./sponsor.html">スポンサー</a></li>
       </ul>
     </nav>
   </header>
@@ -92,50 +94,149 @@
     </section>
 
     <!-- セクション3：トレーナー紹介 -->
-    <section class="trainers section fade-in-section" style="background-color: var(--color-gray);">
+    <section class="trainers section fade-in-section">
       <div class="container">
         <h2 class="section-title">トレーナー紹介</h2>
-        <!-- Swiper.js v11 を使ったスライダー -->
-        <div class="swiper trainer-swiper">
-          <div class="swiper-wrapper">
-            <!-- トレーナー1 -->
-            <div class="swiper-slide">
-              <div class="trainer-card">
-                <img src="https://placehold.jp/400x400.png" alt="トレーナー1の顔写真" class="trainer-img">
-                <!-- ← 後から実際の写真（./images/trainer-1.jpg）に差し替えてください -->
-                <h3 class="trainer-name">山田 太郎 トレーナー<!-- ← 後から変更してください --></h3>
-                <p class="trainer-license">資格：日本キックボクシング連盟公認指導員<!-- ← 後から変更してください --></p>
-                <p class="trainer-class">担当：キッズ・一般クラス<!-- ← 後から変更してください --></p>
-                <blockquote class="trainer-message">「一緒に限界を超えましょう！」<!-- ← 後から変更してください --></blockquote>
-              </div>
+        <div class="trainer-grid">
+
+          <div class="trainer-profile">
+            <div class="trainer-profile-img-wrap">
+              <img src="https://placehold.jp/400x400.png" alt="山田 太郎 トレーナーの写真" class="trainer-profile-img">
+              <!-- ← 後から実際の写真（./images/trainer-1.jpg）に差し替えてください -->
             </div>
-            <!-- トレーナー2 -->
-            <div class="swiper-slide">
-              <div class="trainer-card">
-                <img src="https://placehold.jp/400x400.png" alt="トレーナー2の顔写真" class="trainer-img">
-                <!-- ← 後から実際の写真（./images/trainer-2.jpg）に差し替えてください -->
-                <h3 class="trainer-name">佐藤 花子 トレーナー<!-- ← 後から変更してください --></h3>
-                <p class="trainer-license">資格：全日本キックボクシング連盟認定コーチ<!-- ← 後から変更してください --></p>
-                <p class="trainer-class">担当：女性・初心者クラス<!-- ← 後から変更してください --></p>
-                <blockquote class="trainer-message">「楽しみながら強くなれます！」<!-- ← 後から変更してください --></blockquote>
-              </div>
-            </div>
-            <!-- トレーナー3 -->
-            <div class="swiper-slide">
-              <div class="trainer-card">
-                <img src="https://placehold.jp/400x400.png" alt="トレーナー3の顔写真" class="trainer-img">
-                <!-- ← 後から実際の写真（./images/trainer-3.jpg）に差し替えてください -->
-                <h3 class="trainer-name">鈴木 健一 トレーナー<!-- ← 後から変更してください --></h3>
-                <p class="trainer-license">資格：元プロキックボクサー<!-- ← 後から変更してください --></p>
-                <p class="trainer-class">担当：競技・上級クラス<!-- ← 後から変更してください --></p>
-                <blockquote class="trainer-message">「試合で結果を出す喜びを伝えたい。」<!-- ← 後から変更してください --></blockquote>
-              </div>
+            <div class="trainer-profile-body">
+              <h3 class="trainer-profile-name">山田 太郎<span>トレーナー</span><!-- ← 後から変更してください --></h3>
+              <p class="trainer-profile-license"><i class="fa-solid fa-certificate"></i> 日本キックボクシング連盟公認指導員<!-- ← 後から変更してください --></p>
+              <p class="trainer-profile-class"><i class="fa-solid fa-calendar-days"></i> 担当：ビギナー・キッズクラス<!-- ← 後から変更してください --></p>
+              <p class="trainer-profile-bio">「初めてグローブを握った日の緊張と興奮を、ここで感じてください。どんな方でも必ず上達します。一緒に楽しみましょう！」<!-- ← 後から変更してください --></p>
             </div>
           </div>
-          <!-- スライダーのナビゲーション -->
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+
+          <div class="trainer-profile trainer-profile--reverse">
+            <div class="trainer-profile-img-wrap">
+              <img src="https://placehold.jp/400x400.png" alt="佐藤 花子 トレーナーの写真" class="trainer-profile-img">
+              <!-- ← 後から実際の写真（./images/trainer-2.jpg）に差し替えてください -->
+            </div>
+            <div class="trainer-profile-body">
+              <h3 class="trainer-profile-name">佐藤 花子<span>トレーナー</span><!-- ← 後から変更してください --></h3>
+              <p class="trainer-profile-license"><i class="fa-solid fa-certificate"></i> 全日本キックボクシング連盟認定コーチ<!-- ← 後から変更してください --></p>
+              <p class="trainer-profile-class"><i class="fa-solid fa-calendar-days"></i> 担当：女性クラス<!-- ← 後から変更してください --></p>
+              <p class="trainer-profile-bio">「女性ならではの悩みや目標に寄り添います。楽しく、安全に、そして確実に結果が出るクラスを目指しています。」<!-- ← 後から変更してください --></p>
+            </div>
+          </div>
+
+          <div class="trainer-profile">
+            <div class="trainer-profile-img-wrap">
+              <img src="https://placehold.jp/400x400.png" alt="鈴木 健一 トレーナーの写真" class="trainer-profile-img">
+              <!-- ← 後から実際の写真（./images/trainer-3.jpg）に差し替えてください -->
+            </div>
+            <div class="trainer-profile-body">
+              <h3 class="trainer-profile-name">鈴木 健一<span>トレーナー</span><!-- ← 後から変更してください --></h3>
+              <p class="trainer-profile-license"><i class="fa-solid fa-certificate"></i> 元プロキックボクサー / 日本ランキング上位<!-- ← 後から変更してください --></p>
+              <p class="trainer-profile-class"><i class="fa-solid fa-calendar-days"></i> 担当：キックボクシングクラス<!-- ← 後から変更してください --></p>
+              <p class="trainer-profile-bio">「試合で勝つ喜びを知ってほしい。競技として本気で取り組みたい方、一緒に頂点を目指しましょう。」<!-- ← 後から変更してください --></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション：クラス紹介 -->
+    <section class="classes section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">クラス紹介</h2>
+        <div class="classes-grid">
+
+          <div class="class-card">
+            <div class="class-icon"><i class="fa-solid fa-star"></i></div>
+            <h3>ビギナーキックボクシング</h3>
+            <p class="class-target">対象：運動経験ゼロ〜初心者の方</p>
+            <p>構えの取り方やパンチ・キックの基本フォームからスタート。焦らず着実に上達できる、はじめての方のためのクラスです。</p>
+            <p class="class-trainer"><i class="fa-solid fa-user"></i> 担当：山田 太郎 トレーナー<!-- ← 後から変更してください --></p>
+          </div>
+
+          <div class="class-card">
+            <div class="class-icon"><i class="fa-solid fa-fist-raised"></i></div>
+            <h3>キックボクシング</h3>
+            <p class="class-target">対象：基礎が身についた方〜上級者</p>
+            <p>ミット打ち・スパーリング・体力強化トレーニングを組み合わせた本格クラス。競技志向の方もここから。</p>
+            <p class="class-trainer"><i class="fa-solid fa-user"></i> 担当：鈴木 健一 トレーナー<!-- ← 後から変更してください --></p>
+          </div>
+
+          <div class="class-card">
+            <div class="class-icon"><i class="fa-solid fa-child"></i></div>
+            <h3>キッズクラス</h3>
+            <p class="class-target">対象：小学生〜中学生</p>
+            <p>礼儀・集中力・体力を楽しく育てます。試合に出たいお子さんも、運動習慣をつけたいお子さんも大歓迎。</p>
+            <p class="class-trainer"><i class="fa-solid fa-user"></i> 担当：山田 太郎 トレーナー<!-- ← 後から変更してください --></p>
+          </div>
+
+          <div class="class-card">
+            <div class="class-icon"><i class="fa-solid fa-venus"></i></div>
+            <h3>女性クラス</h3>
+            <p class="class-target">対象：女性限定</p>
+            <p>女性トレーナーが担当する女性専用クラス。ダイエット・護身術・ストレス発散まで、自分のペースで楽しめます。</p>
+            <p class="class-trainer"><i class="fa-solid fa-user"></i> 担当：佐藤 花子 トレーナー<!-- ← 後から変更してください --></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション：クラススケジュール -->
+    <section class="schedule section fade-in-section" style="background-color: var(--color-gray);">
+      <div class="container">
+        <h2 class="section-title">クラススケジュール</h2>
+        <p class="schedule-note">※スケジュールは変更になる場合があります。最新情報はSNSをご確認ください。<!-- ← 後から変更してください --></p>
+
+        <!-- ↓ HTMLのスケジュール表。後から画像に差し替える場合はこのtableをコメントアウトし、imgタグを追加してください -->
+        <div class="schedule-table-wrap">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>時間</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+                <th>日</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="time-col">18:00〜<br>19:00</td>
+                <td class="class-beginner">キッズ</td>
+                <td class="class-beginner">ビギナー</td>
+                <td class="class-beginner">キッズ</td>
+                <td class="class-beginner">ビギナー</td>
+                <td class="class-beginner">キッズ</td>
+                <td rowspan="2" class="class-open">オープン<br>マット<br>10:00〜<br>13:00</td>
+                <td rowspan="2" class="class-open">オープン<br>マット<br>10:00〜<br>13:00</td>
+              </tr>
+              <tr>
+                <td class="time-col">19:30〜<br>21:00</td>
+                <td class="class-kick">キック<br>ボクシング</td>
+                <td class="class-women">女性</td>
+                <td class="class-kick">キック<br>ボクシング</td>
+                <td class="class-women">女性</td>
+                <td class="class-kick">キック<br>ボクシング</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- ↑ ここまでスケジュール表 -->
+
+        <!-- 画像に差し替える場合はこちらを使ってください -->
+        <!-- <img src="./images/schedule.jpg" alt="クラススケジュール表" class="img-schedule"> --><!-- ← 差し替え用 -->
+
+        <div class="schedule-legend">
+          <span class="legend-item legend-beginner">ビギナー・キッズ</span>
+          <span class="legend-item legend-kick">キックボクシング</span>
+          <span class="legend-item legend-women">女性クラス</span>
+          <span class="legend-item legend-open">オープンマット</span>
         </div>
       </div>
     </section>
@@ -236,6 +337,7 @@
           <li><a href="./about.html">ジム紹介</a></li>
           <li><a href="./news.html">お知らせ</a></li>
           <li><a href="./contact.html">お問い合わせ</a></li>
+          <li><a href="./sponsor.html">スポンサー</a></li>
         </ul>
       </nav>
       <div class="footer-sns">
@@ -256,8 +358,6 @@
   <!-- ページトップへ戻るボタン -->
   <button class="page-top" id="pageTop" aria-label="ページトップへ戻る">▲</button>
 
-  <!-- Swiper.js v11 -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <!-- 共通JavaScript -->
   <script src="./js/main.js"></script>
 </body>

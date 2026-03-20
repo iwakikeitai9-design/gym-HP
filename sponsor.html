@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Desafio（デサフィオ）のスポンサー一覧およびスポンサーシップに関するお問い合わせページです。">
+  <meta property="og:title" content="スポンサー | Desafio Kickboxing Gym">
+  <meta property="og:description" content="Desafioのスポンサー企業一覧とスポンサー募集のご案内。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/sponsor.html">
+  <meta property="og:image" content="https://example.com/images/hero.jpg">
+  <title>スポンサー | Desafio Kickboxing Gym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/pages.css">
+</head>
+<body>
+  <div id="loading"><div class="loading-spinner"></div></div>
+
+  <header id="header">
+    <div class="header-inner">
+      <a href="./index.html" class="logo">Desafio</a>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+          <li><a href="./sponsor.html" class="active">スポンサー</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="sp-nav" id="sp-nav">
+      <ul>
+        <li><a href="./index.html">トップ</a></li>
+        <li><a href="./about.html">ジム紹介</a></li>
+        <li><a href="./news.html">お知らせ</a></li>
+        <li><a href="./contact.html">お問い合わせ</a></li>
+        <li><a href="./sponsor.html">スポンサー</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ページヒーロー -->
+    <section class="page-hero page-hero--gradient">
+      <div class="page-hero-content">
+        <h1>スポンサー</h1>
+        <p>Desafioを支えてくださる皆様・ご協賛のご案内</p>
+      </div>
+    </section>
+
+    <!-- 現在のスポンサー -->
+    <section class="sponsor-list section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">スポンサー企業・団体</h2>
+        <p class="section-lead">Desafioの活動を支援してくださっているスポンサーの皆様をご紹介します。</p>
+        <div class="sponsor-grid">
+          <!-- ここからスポンサー1 -->
+          <div class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://placehold.jp/300x150.png" alt="スポンサー企業1のロゴ" class="sponsor-logo">
+              <!-- ← 後から実際のロゴ画像に差し替えてください -->
+            </div>
+            <p class="sponsor-name">株式会社〇〇<!-- ← 後から変更してください --></p>
+            <p class="sponsor-url"><a href="#" target="_blank" rel="noopener noreferrer">https://example.com<!-- ← 後から変更してください --></a></p>
+          </div>
+          <!-- ここまでスポンサー1 -->
+
+          <!-- ここからスポンサー2 -->
+          <div class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://placehold.jp/300x150.png" alt="スポンサー企業2のロゴ" class="sponsor-logo">
+              <!-- ← 後から実際のロゴ画像に差し替えてください -->
+            </div>
+            <p class="sponsor-name">〇〇スポーツ<!-- ← 後から変更してください --></p>
+            <p class="sponsor-url"><a href="#" target="_blank" rel="noopener noreferrer">https://example.com<!-- ← 後から変更してください --></a></p>
+          </div>
+          <!-- ここまでスポンサー2 -->
+
+          <!-- ここからスポンサー3 -->
+          <div class="sponsor-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://placehold.jp/300x150.png" alt="スポンサー企業3のロゴ" class="sponsor-logo">
+              <!-- ← 後から実際のロゴ画像に差し替えてください -->
+            </div>
+            <p class="sponsor-name">〇〇医院<!-- ← 後から変更してください --></p>
+            <p class="sponsor-url"><a href="#" target="_blank" rel="noopener noreferrer">https://example.com<!-- ← 後から変更してください --></a></p>
+          </div>
+          <!-- ここまでスポンサー3 -->
+        </div>
+        <p class="sponsor-add-note">※ スポンサー企業・ロゴは後から変更・追加してください</p>
+      </div>
+    </section>
+
+    <!-- スポンサーシップ案内 -->
+    <section class="sponsor-info section fade-in-section" style="background-color: var(--color-gray);">
+      <div class="container">
+        <h2 class="section-title">スポンサーシップのご案内</h2>
+        <div class="sponsor-benefits">
+          <p class="section-lead">Desafioは小樽から北海道・全国へ挑戦し続けるキックボクシングジムです。<br>ご支援いただける企業・個人の方を広く募集しています。</p>
+          <div class="cards-3">
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
+              <h3>露出・広告効果</h3>
+              <p>ジムのウェブサイト・SNS・試合会場でロゴや社名を掲出します。地域密着型の効果的なPRが可能です。</p>
+            </div>
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+              <h3>地域貢献・CSR</h3>
+              <p>地域のスポーツ文化を育てる活動への支援は、企業のCSR（社会的責任）活動としても高く評価されます。</p>
+            </div>
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
+              <h3>試合・イベント連携</h3>
+              <p>大会や体験イベントへの協賛・ブース出展など、様々な形でのご協力が可能です。詳細はご相談ください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- スポンサーお問い合わせフォーム -->
+    <section class="sponsor-contact section fade-in-section">
+      <div class="container sponsor-contact-inner">
+        <h2 class="section-title">スポンサーシップのお問い合わせ</h2>
+        <p class="section-lead">スポンサーに興味をお持ちの企業・個人の方は、以下のフォームよりお気軽にご連絡ください。<br>2営業日以内にご返答いたします。</p>
+
+        <div class="form-success" id="sponsorFormSuccess" style="display:none;">
+          ✅ お問い合わせを受け付けました。2営業日以内にご連絡します。
+        </div>
+
+        <form id="sponsorForm" action="#" class="sponsor-form">
+          <!-- ← メールフォームサービス（FormspreeやNetlify Forms等）のURLをここに入れてください -->
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sp-company">会社名・団体名 <span class="optional">任意</span></label>
+              <input type="text" id="sp-company" name="company" placeholder="例：株式会社〇〇">
+            </div>
+            <div class="form-group">
+              <label for="sp-name">担当者名 <span class="required">必須</span></label>
+              <input type="text" id="sp-name" name="name" placeholder="例：山田 太郎">
+              <p class="error-msg" id="sp-error-name"></p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sp-email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="sp-email" name="email" placeholder="例：info@example.com">
+              <p class="error-msg" id="sp-error-email"></p>
+            </div>
+            <div class="form-group">
+              <label for="sp-tel">電話番号 <span class="optional">任意</span></label>
+              <input type="tel" id="sp-tel" name="tel" placeholder="例：000-0000-0000">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="sp-message">お問い合わせ内容 <span class="required">必須</span></label>
+            <textarea id="sp-message" name="message" rows="5" placeholder="スポンサーシップの形態・ご希望・ご質問など、お気軽にご記入ください"></textarea>
+            <p class="error-msg" id="sp-error-message"></p>
+          </div>
+
+          <div class="form-group form-group--checkbox">
+            <label class="checkbox-label">
+              <input type="checkbox" id="sp-agree" name="agree">
+              <span>個人情報の取り扱いに同意する</span>
+            </label>
+            <p class="error-msg" id="sp-error-agree"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">送信する</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-info">
+        <p class="footer-logo">Desafio</p>
+        <p>北海道小樽市花園○○<!-- ← 住所を後から変更してください --></p>
+        <p>TEL：000-0000-0000<!-- ← 電話番号を後から変更してください --></p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+          <li><a href="./sponsor.html">スポンサー</a></li>
+        </ul>
+      </nav>
+      <div class="footer-sns">
+        <a href="SNS_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+        <a href="SNS_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）">X（Twitter）</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <a href="./contact.html" class="btn btn-cta">無料体験を申し込む</a>
+      <p class="copyright">© 2025 Desafio Kickboxing Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="page-top" id="pageTop" aria-label="ページトップへ戻る">▲</button>
+  <script src="./js/main.js"></script>
+</body>
+</html>

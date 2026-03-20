@@ -240,3 +240,50 @@ if (contactForm) {
     }
   });
 }
+
+/* ------------------------------------------
+   スポンサーフォームバリデーション（sponsor.html）
+   ------------------------------------------ */
+const sponsorForm = document.getElementById('sponsorForm');
+if (sponsorForm) {
+  sponsorForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    document.querySelectorAll('[id^="sp-error"]').forEach(el => el.textContent = '');
+
+    const spName = document.getElementById('sp-name');
+    if (!spName.value.trim()) {
+      document.getElementById('sp-error-name').textContent = '担当者名を入力してください。';
+      isValid = false;
+    }
+
+    const spEmail = document.getElementById('sp-email');
+    if (!spEmail.value.trim()) {
+      document.getElementById('sp-error-email').textContent = 'メールアドレスを入力してください。';
+      isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(spEmail.value)) {
+      document.getElementById('sp-error-email').textContent = '正しいメールアドレスを入力してください。';
+      isValid = false;
+    }
+
+    const spMessage = document.getElementById('sp-message');
+    if (!spMessage.value.trim()) {
+      document.getElementById('sp-error-message').textContent = 'お問い合わせ内容を入力してください。';
+      isValid = false;
+    }
+
+    const spAgree = document.getElementById('sp-agree');
+    if (!spAgree.checked) {
+      document.getElementById('sp-error-agree').textContent = '個人情報の取り扱いへの同意が必要です。';
+      isValid = false;
+    }
+
+    if (isValid) {
+      const successMsg = document.getElementById('sponsorFormSuccess');
+      successMsg.style.display = 'block';
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      sponsorForm.reset();
+    }
+  });
+}
