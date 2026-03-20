@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="北海道小樽市花園のキックボクシングジム「Desafio（デサフィオ）」公式サイト。初心者から競技者まで、本格的なキックボクシング指導を行っています。">
+  <!-- OGP設定（SNSでシェアされたときのサムネイル） -->
+  <meta property="og:title" content="Desafio Kickboxing Gym | 小樽のキックボクシングジム">
+  <meta property="og:description" content="北海道小樽市花園のキックボクシングジム。初心者から競技者まで本格指導。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/"><!-- ← デプロイ後にURLを変更してください -->
+  <meta property="og:image" content="https://example.com/images/hero.jpg"><!-- ← デプロイ後にURLを変更してください -->
+  <title>Desafio Kickboxing Gym | 小樽のキックボクシングジム</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Swiper.js v11 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/pages.css">
+</head>
+<body>
+  <!-- ローディング画面 -->
+  <div id="loading">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- ヘッダー -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="./index.html" class="logo">Desafio</a>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="./index.html" class="active">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <!-- ハンバーガーメニューボタン（スマホ用） -->
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <!-- スマホ用ナビ -->
+    <nav class="sp-nav" id="sp-nav">
+      <ul>
+        <li><a href="./index.html">トップ</a></li>
+        <li><a href="./about.html">ジム紹介</a></li>
+        <li><a href="./news.html">お知らせ</a></li>
+        <li><a href="./contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- セクション1：ヒーロー -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" style="background-image: url('./images/hero.jpg');"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-catch fade-in-up">強く、楽しく、自分を超えろ。</h1>
+        <p class="hero-sub fade-in-up delay-1">小樽から世界へ。Desafioで、あなたの挑戦が始まる。</p>
+        <div class="hero-buttons fade-in-up delay-2">
+          <a href="./contact.html" class="btn btn-cta">無料体験を申し込む</a>
+          <a href="./about.html" class="btn btn-outline">ジムを詳しく見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション2：選ばれる3つの理由 -->
+    <section class="reasons section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Desafioが選ばれる3つの理由</h2>
+        <div class="cards-3">
+          <div class="card card-hover">
+            <div class="card-icon">🥊</div>
+            <h3>初心者でも安心</h3>
+            <p>丁寧な個別指導で、運動経験ゼロでも大丈夫。</p>
+          </div>
+          <div class="card card-hover">
+            <div class="card-icon">🏆</div>
+            <h3>本格的な競技指導</h3>
+            <p>アマチュア大会から全国レベルまで対応した本格指導。</p>
+          </div>
+          <div class="card card-hover">
+            <div class="card-icon">🤝</div>
+            <h3>アットホームな雰囲気</h3>
+            <p>年齢・目的を問わず、誰もが通いやすいジムです。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション3：こんな方におすすめ -->
+    <section class="target section fade-in-section" style="background-color: var(--color-gray);">
+      <div class="container">
+        <h2 class="section-title">あなたにぴったりのジムです</h2>
+        <div class="cards-3">
+          <div class="card">
+            <div class="card-icon">💪</div>
+            <h3>ダイエット・健康を目指したい方</h3>
+            <p>キックボクシングは有酸素運動と筋トレが同時にできる最強のダイエット。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎒</div>
+            <h3>子ども・学生の方</h3>
+            <p>礼儀・集中力・自信を身につけながら楽しく体を動かそう。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🥇</div>
+            <h3>本格的に競技を目指したい方</h3>
+            <p>実績あるトレーナーが試合に向けて徹底サポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション4：料金プラン -->
+    <section class="pricing section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">料金プラン</h2>
+        <div class="pricing-cards">
+          <!-- ライトプラン -->
+          <div class="pricing-card">
+            <h3>ライトプラン</h3>
+            <div class="price">¥8,000<span>（税込）</span></div><!-- ← 料金は後から変更してください -->
+            <p class="price-sub">月4回</p><!-- ← 回数は後から変更してください -->
+            <ul class="price-list">
+              <li>通常クラス参加</li>
+              <li>入会金あり</li>
+              <li>ロッカー使用可</li>
+            </ul>
+            <a href="SQUARE_PAYMENT_URL_HERE" class="btn btn-primary">このプランで申し込む</a><!-- ← SquareのURLをここに入れてください -->
+          </div>
+          <!-- スタンダードプラン（おすすめ） -->
+          <div class="pricing-card pricing-card--featured">
+            <div class="badge">おすすめ</div>
+            <h3>スタンダードプラン</h3>
+            <div class="price">¥12,000<span>（税込）</span></div><!-- ← 料金は後から変更してください -->
+            <p class="price-sub">通い放題</p>
+            <ul class="price-list">
+              <li>全クラス参加</li>
+              <li>入会金あり</li>
+              <li>ロッカー使用可</li>
+              <li>グローブ貸出</li>
+            </ul>
+            <a href="SQUARE_PAYMENT_URL_HERE" class="btn btn-cta">このプランで申し込む</a><!-- ← SquareのURLをここに入れてください -->
+          </div>
+          <!-- 競技プラン -->
+          <div class="pricing-card">
+            <h3>競技プラン</h3>
+            <div class="price">¥15,000<span>（税込）</span></div><!-- ← 料金は後から変更してください -->
+            <p class="price-sub">スパーリングあり</p><!-- ← 内容は後から変更してください -->
+            <ul class="price-list">
+              <li>全クラス参加</li>
+              <li>スパーリング参加</li>
+              <li>試合サポート</li>
+              <li>個別指導</li>
+            </ul>
+            <a href="SQUARE_PAYMENT_URL_HERE" class="btn btn-primary">このプランで申し込む</a><!-- ← SquareのURLをここに入れてください -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション5：アクセス -->
+    <section class="access section fade-in-section" style="background-color: var(--color-gray);">
+      <div class="container">
+        <h2 class="section-title">アクセス</h2>
+        <div class="access-inner">
+          <div class="access-info">
+            <p><strong>住所</strong><br>北海道小樽市花園○○<!-- ← 番地を後から追記してください --></p>
+            <p><strong>営業時間</strong><br>平日 18:00〜21:00 / 土日 10:00〜13:00<!-- ← 後から変更してください --></p>
+            <p><strong>定休日</strong><br>月曜日<!-- ← 後から変更してください --></p>
+            <p><strong>電話番号</strong><br>000-0000-0000<!-- ← 後から変更してください --></p>
+          </div>
+          <div class="access-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2872.0!2d141.0!3d43.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2e1d7e000001%3A0x1!2z5YyX5rW36YGT5bCP5qmL5Zyy5Iqx5ZyL!5e0!3m2!1sja!2sjp!4v1234567890"
+              width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Desafioキックボクシングジムの地図">
+            </iframe>
+            <!-- ← Google Mapsで「北海道小樽市花園」を検索し、埋め込みURLを後から差し替えてください -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション6：最新のお知らせ -->
+    <section class="news-preview section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">お知らせ</h2>
+        <div class="news-list">
+          <article class="news-item">
+            <time class="news-date">2025.06.01</time>
+            <span class="news-badge badge-event">イベント</span>
+            <h3 class="news-title">夏の無料体験週間を開催します</h3>
+            <p class="news-excerpt">7月中旬に無料体験週間を実施予定です。この機会にぜひご参加ください。</p>
+          </article>
+          <article class="news-item">
+            <time class="news-date">2025.05.15</time>
+            <span class="news-badge badge-result">試合結果</span>
+            <h3 class="news-title">全国大会で入賞しました！</h3>
+            <p class="news-excerpt">先日行われた全国キックボクシング大会にて、当ジム所属選手が準優勝を果たしました。</p>
+          </article>
+          <article class="news-item">
+            <time class="news-date">2025.05.01</time>
+            <span class="news-badge badge-info">お知らせ</span>
+            <h3 class="news-title">営業時間変更のお知らせ</h3>
+            <p class="news-excerpt">6月より土日の営業時間が変更になります。詳細はお知らせページをご確認ください。</p>
+          </article>
+        </div>
+        <div class="news-more">
+          <a href="./news.html" class="link-more">すべてのお知らせを見る →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-info">
+        <p class="footer-logo">Desafio</p>
+        <p>北海道小樽市花園○○<!-- ← 住所を後から変更してください --></p>
+        <p>TEL：000-0000-0000<!-- ← 電話番号を後から変更してください --></p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="footer-sns">
+        <a href="SNS_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><!-- ← SNSのURLをここに入れてください -->
+          Instagram
+        </a>
+        <a href="SNS_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）"><!-- ← SNSのURLをここに入れてください -->
+          X（Twitter）
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <a href="./contact.html" class="btn btn-cta">無料体験を申し込む</a>
+      <p class="copyright">© 2025 Desafio Kickboxing Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ページトップへ戻るボタン -->
+  <button class="page-top" id="pageTop" aria-label="ページトップへ戻る">▲</button>
+
+  <!-- Swiper.js v11 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- 共通JavaScript -->
+  <script src="./js/main.js"></script>
+</body>
+</html>

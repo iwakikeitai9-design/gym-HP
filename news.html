@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Desafio（デサフィオ）からのお知らせ・イベント情報・試合結果をお届けします。">
+  <!-- OGP設定 -->
+  <meta property="og:title" content="お知らせ | Desafio Kickboxing Gym">
+  <meta property="og:description" content="Desafioからのお知らせ・イベント情報・試合結果。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/news.html"><!-- ← デプロイ後にURLを変更してください -->
+  <meta property="og:image" content="https://example.com/images/hero.jpg"><!-- ← デプロイ後にURLを変更してください -->
+  <title>お知らせ | Desafio Kickboxing Gym</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/pages.css">
+</head>
+<body>
+  <!-- ローディング画面 -->
+  <div id="loading">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- ヘッダー -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="./index.html" class="logo">Desafio</a>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./news.html" class="active">お知らせ</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav class="sp-nav" id="sp-nav">
+      <ul>
+        <li><a href="./index.html">トップ</a></li>
+        <li><a href="./about.html">ジム紹介</a></li>
+        <li><a href="./news.html">お知らせ</a></li>
+        <li><a href="./contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ページヒーロー（シンプル） -->
+    <section class="page-hero page-hero--simple">
+      <div class="page-hero-content">
+        <h1>お知らせ</h1>
+        <p>Desafioからの最新情報をお届けします。</p>
+      </div>
+    </section>
+
+    <section class="news-section section">
+      <div class="container">
+        <div class="news-layout">
+          <!-- メインコンテンツ：記事一覧 -->
+          <div class="news-main">
+            <!-- カテゴリー絞り込みボタン -->
+            <div class="filter-buttons">
+              <button class="filter-btn active" data-category="all">すべて</button>
+              <button class="filter-btn" data-category="info">お知らせ</button>
+              <button class="filter-btn" data-category="event">イベント</button>
+              <button class="filter-btn" data-category="result">試合結果</button>
+            </div>
+
+            <!-- 記事一覧 -->
+            <div class="news-articles">
+
+              <!-- ここから記事1：タイトル・本文・カテゴリーを変更してください -->
+              <article class="news-article" data-category="event">
+                <img src="https://placehold.jp/600x400.png" alt="夏の無料体験週間" class="news-article-img">
+                <!-- ← 後から実際の画像に差し替えてください -->
+                <div class="news-article-body">
+                  <div class="news-meta">
+                    <time class="news-date">2025.06.01</time>
+                    <span class="news-badge badge-event">イベント</span>
+                  </div>
+                  <h2 class="news-article-title">夏の無料体験週間を開催します</h2>
+                  <p class="news-article-excerpt">7月中旬に無料体験週間を実施予定です。この機会にぜひご参加ください。通常の体験では見られないジムの雰囲気も体感できます。お気軽にお越しください。</p>
+                  <a href="#" class="link-more">続きを読む →</a>
+                </div>
+              </article>
+              <!-- ここまで記事1 -->
+
+              <!-- ここから記事2：タイトル・本文・カテゴリーを変更してください -->
+              <article class="news-article" data-category="result">
+                <img src="https://placehold.jp/600x400.png" alt="全国大会入賞報告" class="news-article-img">
+                <!-- ← 後から実際の画像に差し替えてください -->
+                <div class="news-article-body">
+                  <div class="news-meta">
+                    <time class="news-date">2025.05.15</time>
+                    <span class="news-badge badge-result">試合結果</span>
+                  </div>
+                  <h2 class="news-article-title">全国大会で入賞しました！</h2>
+                  <p class="news-article-excerpt">先日行われた全国キックボクシング大会にて、当ジム所属選手が準優勝を果たしました。日頃からの練習の成果が出せた素晴らしい試合でした。</p>
+                  <a href="#" class="link-more">続きを読む →</a>
+                </div>
+              </article>
+              <!-- ここまで記事2 -->
+
+              <!-- ここから記事3：タイトル・本文・カテゴリーを変更してください -->
+              <article class="news-article" data-category="info">
+                <img src="https://placehold.jp/600x400.png" alt="営業時間変更のお知らせ" class="news-article-img">
+                <!-- ← 後から実際の画像に差し替えてください -->
+                <div class="news-article-body">
+                  <div class="news-meta">
+                    <time class="news-date">2025.05.01</time>
+                    <span class="news-badge badge-info">お知らせ</span>
+                  </div>
+                  <h2 class="news-article-title">営業時間変更のお知らせ</h2>
+                  <p class="news-article-excerpt">6月より土日の営業時間が変更になります。詳細は本文をご確認ください。ご不便をおかけしますが、ご理解いただけると幸いです。</p>
+                  <a href="#" class="link-more">続きを読む →</a>
+                </div>
+              </article>
+              <!-- ここまで記事3 -->
+
+              <!-- ここから記事4：タイトル・本文・カテゴリーを変更してください -->
+              <article class="news-article" data-category="event">
+                <img src="https://placehold.jp/600x400.png" alt="キッズ大会参加報告" class="news-article-img">
+                <!-- ← 後から実際の画像に差し替えてください -->
+                <div class="news-article-body">
+                  <div class="news-meta">
+                    <time class="news-date">2025.04.10</time>
+                    <span class="news-badge badge-event">イベント</span>
+                  </div>
+                  <h2 class="news-article-title">キッズ大会に参加しました！</h2>
+                  <p class="news-article-excerpt">先日開催された北海道キッズキックボクシング大会にジムのキッズ会員が参加しました。みんな元気いっぱいに戦ってくれました！</p>
+                  <a href="#" class="link-more">続きを読む →</a>
+                </div>
+              </article>
+              <!-- ここまで記事4 -->
+
+              <!-- ここから記事5：タイトル・本文・カテゴリーを変更してください -->
+              <article class="news-article" data-category="info">
+                <img src="https://placehold.jp/600x400.png" alt="新クラス開始のお知らせ" class="news-article-img">
+                <!-- ← 後から実際の画像に差し替えてください -->
+                <div class="news-article-body">
+                  <div class="news-meta">
+                    <time class="news-date">2025.03.20</time>
+                    <span class="news-badge badge-info">お知らせ</span>
+                  </div>
+                  <h2 class="news-article-title">4月より女性専用クラスを新設します</h2>
+                  <p class="news-article-excerpt">4月から毎週水曜日に女性専用クラスを新設します。女性トレーナーが担当しますので、初めての方も安心してご参加ください。</p>
+                  <a href="#" class="link-more">続きを読む →</a>
+                </div>
+              </article>
+              <!-- ここまで記事5 -->
+
+            </div>
+          </div>
+
+          <!-- サイドバー -->
+          <aside class="news-sidebar">
+            <!-- カテゴリーリスト -->
+            <div class="sidebar-widget">
+              <h3 class="sidebar-title">カテゴリー</h3>
+              <ul class="sidebar-category-list">
+                <li><a href="#" class="filter-link" data-category="all">すべて</a></li>
+                <li><a href="#" class="filter-link" data-category="info">お知らせ</a></li>
+                <li><a href="#" class="filter-link" data-category="event">イベント</a></li>
+                <li><a href="#" class="filter-link" data-category="result">試合結果</a></li>
+              </ul>
+            </div>
+            <!-- 最新記事5件 -->
+            <div class="sidebar-widget">
+              <h3 class="sidebar-title">最新記事</h3>
+              <ul class="sidebar-recent-list">
+                <li><a href="#">夏の無料体験週間を開催します</a><time>2025.06.01</time></li>
+                <li><a href="#">全国大会で入賞しました！</a><time>2025.05.15</time></li>
+                <li><a href="#">営業時間変更のお知らせ</a><time>2025.05.01</time></li>
+                <li><a href="#">キッズ大会に参加しました！</a><time>2025.04.10</time></li>
+                <li><a href="#">4月より女性専用クラスを新設します</a><time>2025.03.20</time></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-info">
+        <p class="footer-logo">Desafio</p>
+        <p>北海道小樽市花園○○<!-- ← 住所を後から変更してください --></p>
+        <p>TEL：000-0000-0000<!-- ← 電話番号を後から変更してください --></p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="footer-sns">
+        <a href="SNS_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><!-- ← SNSのURLをここに入れてください -->
+          Instagram
+        </a>
+        <a href="SNS_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）"><!-- ← SNSのURLをここに入れてください -->
+          X（Twitter）
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <a href="./contact.html" class="btn btn-cta">無料体験を申し込む</a>
+      <p class="copyright">© 2025 Desafio Kickboxing Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ページトップへ戻るボタン -->
+  <button class="page-top" id="pageTop" aria-label="ページトップへ戻る">▲</button>
+
+  <!-- 共通JavaScript -->
+  <script src="./js/main.js"></script>
+</body>
+</html>

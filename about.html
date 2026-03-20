@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Desafio（デサフィオ）のジム紹介・トレーナー紹介・よくある質問ページです。">
+  <!-- OGP設定 -->
+  <meta property="og:title" content="ジム紹介 | Desafio Kickboxing Gym">
+  <meta property="og:description" content="Desafioのジム紹介・トレーナー紹介・よくある質問。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/about.html"><!-- ← デプロイ後にURLを変更してください -->
+  <meta property="og:image" content="https://example.com/images/gym-1.jpg"><!-- ← デプロイ後にURLを変更してください -->
+  <title>ジム紹介 | Desafio Kickboxing Gym</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Swiper.js v11 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/pages.css">
+</head>
+<body>
+  <!-- ローディング画面 -->
+  <div id="loading">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- ヘッダー -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="./index.html" class="logo">Desafio</a>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html" class="active">ジム紹介</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav class="sp-nav" id="sp-nav">
+      <ul>
+        <li><a href="./index.html">トップ</a></li>
+        <li><a href="./about.html">ジム紹介</a></li>
+        <li><a href="./news.html">お知らせ</a></li>
+        <li><a href="./contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- セクション1：ページヒーロー -->
+    <section class="page-hero">
+      <div class="hero-bg" style="background-image: url('./images/gym-1.jpg');"></div>
+      <div class="hero-overlay"></div>
+      <div class="page-hero-content">
+        <h1>Desafioについて</h1>
+        <p>小樽から、本気のキックボクシングを。</p>
+      </div>
+    </section>
+
+    <!-- セクション2：ジムの紹介 -->
+    <section class="gym-intro section fade-in-section">
+      <div class="container">
+        <div class="two-col">
+          <div class="two-col-text">
+            <h2 class="section-title-left">ジムの紹介</h2>
+            <p><!-- ← 創設ストーリー・ジムの理念を後から変更してください -->
+              Desafioは、北海道小樽市花園に誕生したキックボクシングジムです。
+              「Desafio」とはポルトガル語で「挑戦」を意味します。
+              私たちは、年齢や経験を問わず、すべての人が「挑戦する喜び」を感じられる場所を目指しています。
+            </p>
+            <p><!-- ← ジムの理念・大切にしていることを後から変更してください -->
+              初めてグローブを握る初心者から、試合を目指す本格派まで、
+              一人ひとりに寄り添った丁寧な指導を大切にしています。
+              小樽の地から、皆さんの挑戦を全力でサポートします。
+            </p>
+          </div>
+          <div class="two-col-img">
+            <img src="https://placehold.jp/1200x600.png" alt="Desafioジム内観" class="img-gym-interior">
+            <!-- ← 後から実際のジム写真（./images/gym-2.jpg）に差し替えてください -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション3：トレーナー紹介 -->
+    <section class="trainers section fade-in-section" style="background-color: var(--color-gray);">
+      <div class="container">
+        <h2 class="section-title">トレーナー紹介</h2>
+        <!-- Swiper.js v11 を使ったスライダー -->
+        <div class="swiper trainer-swiper">
+          <div class="swiper-wrapper">
+            <!-- トレーナー1 -->
+            <div class="swiper-slide">
+              <div class="trainer-card">
+                <img src="https://placehold.jp/400x400.png" alt="トレーナー1の顔写真" class="trainer-img">
+                <!-- ← 後から実際の写真（./images/trainer-1.jpg）に差し替えてください -->
+                <h3 class="trainer-name">山田 太郎 トレーナー<!-- ← 後から変更してください --></h3>
+                <p class="trainer-license">資格：日本キックボクシング連盟公認指導員<!-- ← 後から変更してください --></p>
+                <p class="trainer-class">担当：キッズ・一般クラス<!-- ← 後から変更してください --></p>
+                <blockquote class="trainer-message">「一緒に限界を超えましょう！」<!-- ← 後から変更してください --></blockquote>
+              </div>
+            </div>
+            <!-- トレーナー2 -->
+            <div class="swiper-slide">
+              <div class="trainer-card">
+                <img src="https://placehold.jp/400x400.png" alt="トレーナー2の顔写真" class="trainer-img">
+                <!-- ← 後から実際の写真（./images/trainer-2.jpg）に差し替えてください -->
+                <h3 class="trainer-name">佐藤 花子 トレーナー<!-- ← 後から変更してください --></h3>
+                <p class="trainer-license">資格：全日本キックボクシング連盟認定コーチ<!-- ← 後から変更してください --></p>
+                <p class="trainer-class">担当：女性・初心者クラス<!-- ← 後から変更してください --></p>
+                <blockquote class="trainer-message">「楽しみながら強くなれます！」<!-- ← 後から変更してください --></blockquote>
+              </div>
+            </div>
+            <!-- トレーナー3 -->
+            <div class="swiper-slide">
+              <div class="trainer-card">
+                <img src="https://placehold.jp/400x400.png" alt="トレーナー3の顔写真" class="trainer-img">
+                <!-- ← 後から実際の写真（./images/trainer-3.jpg）に差し替えてください -->
+                <h3 class="trainer-name">鈴木 健一 トレーナー<!-- ← 後から変更してください --></h3>
+                <p class="trainer-license">資格：元プロキックボクサー<!-- ← 後から変更してください --></p>
+                <p class="trainer-class">担当：競技・上級クラス<!-- ← 後から変更してください --></p>
+                <blockquote class="trainer-message">「試合で結果を出す喜びを伝えたい。」<!-- ← 後から変更してください --></blockquote>
+              </div>
+            </div>
+          </div>
+          <!-- スライダーのナビゲーション -->
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション4：よくある質問（FAQ） -->
+    <section class="faq section fade-in-section" id="faq">
+      <div class="container">
+        <h2 class="section-title">よくある質問</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Q. 運動が苦手でも大丈夫ですか？</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>はい、まったく問題ありません。初心者向けのクラスでは基本的な動きから丁寧に指導します。運動経験ゼロの方も多数在籍しています。</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Q. 体験はどうやって申し込みますか？</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>お問い合わせページのフォームから「無料体験の申し込み」を選択してお申し込みください。折り返しご連絡いたします。</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Q. 子どもは何歳から入会できますか？</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>小学校1年生（6歳）から入会可能です。キッズクラスでは礼儀・集中力・体力づくりを楽しく学べます。<!-- ← 後から変更してください --></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Q. 女性一人でも通えますか？</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>はい、女性会員も多く在籍しています。女性専用の時間帯も設けており、安心して通えます。<!-- ← 後から変更してください --></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Q. 道具は自分で用意が必要ですか？</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>体験時・入会初期はグローブ等の貸し出しがあります（スタンダードプラン以上）。継続的に通う場合は、徐々にご自身のものを揃えることをおすすめします。</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Q. 見学だけでもできますか？</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>はい、見学も大歓迎です。事前にお問い合わせフォームまたはお電話でご連絡ください。</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Q. 月の途中から入会できますか？</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>はい、随時入会を受け付けています。月途中の入会の場合は日割り計算でのご請求となります。<!-- ← 後から変更してください --></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Q. 駐車場はありますか？</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>はい、ジム専用の駐車場を〇台分ご用意しています。<!-- ← 台数を後から変更してください --></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-info">
+        <p class="footer-logo">Desafio</p>
+        <p>北海道小樽市花園○○<!-- ← 住所を後から変更してください --></p>
+        <p>TEL：000-0000-0000<!-- ← 電話番号を後から変更してください --></p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="footer-sns">
+        <a href="SNS_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><!-- ← SNSのURLをここに入れてください -->
+          Instagram
+        </a>
+        <a href="SNS_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）"><!-- ← SNSのURLをここに入れてください -->
+          X（Twitter）
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <a href="./contact.html" class="btn btn-cta">無料体験を申し込む</a>
+      <p class="copyright">© 2025 Desafio Kickboxing Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ページトップへ戻るボタン -->
+  <button class="page-top" id="pageTop" aria-label="ページトップへ戻る">▲</button>
+
+  <!-- Swiper.js v11 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- 共通JavaScript -->
+  <script src="./js/main.js"></script>
+</body>
+</html>
