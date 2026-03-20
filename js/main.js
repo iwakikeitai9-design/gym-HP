@@ -132,6 +132,94 @@ document.querySelectorAll('.faq-question').forEach(button => {
 /* 8. トレーナースライダーは削除済み（グリッドレイアウトに変更） */
 
 /* ------------------------------------------
+   8b. 料金プランのトグル（詳細を開閉）
+   ------------------------------------------ */
+document.querySelectorAll('.pricing-detail-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const detail = btn.closest('.pricing-row').querySelector('.pricing-detail-body');
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      btn.setAttribute('aria-expanded', 'false');
+      detail.style.maxHeight = null;
+      btn.querySelector('.pricing-arrow').textContent = '▼';
+    } else {
+      btn.setAttribute('aria-expanded', 'true');
+      detail.style.maxHeight = detail.scrollHeight + 'px';
+      btn.querySelector('.pricing-arrow').textContent = '▲';
+    }
+  });
+});
+
+/* ------------------------------------------
+   8c. スケジュール曜日セレクター（スマホ用）
+   ------------------------------------------ */
+const scheduleData = {
+  '月': [
+    { time: '18:00〜19:00', name: 'キッズクラス',              color: 'beginner' },
+    { time: '19:30〜21:00', name: 'キックボクシングクラス',    color: 'kick'     }
+  ],
+  '火': [
+    { time: '18:00〜19:00', name: 'ビギナーキックボクシング',  color: 'beginner' },
+    { time: '19:30〜21:00', name: '女性クラス',                color: 'women'    }
+  ],
+  '水': [
+    { time: '18:00〜19:00', name: 'キッズクラス',              color: 'beginner' },
+    { time: '19:30〜21:00', name: 'キックボクシングクラス',    color: 'kick'     }
+  ],
+  '木': [
+    { time: '18:00〜19:00', name: 'ビギナーキックボクシング',  color: 'beginner' },
+    { time: '19:30〜21:00', name: '女性クラス',                color: 'women'    }
+  ],
+  '金': [
+    { time: '18:00〜19:00', name: 'キッズクラス',              color: 'beginner' },
+    { time: '19:30〜21:00', name: 'キックボクシングクラス',    color: 'kick'     }
+  ],
+  '土': [
+    { time: '10:00〜13:00', name: 'オープンマット（フリー）',  color: 'open'     }
+  ],
+  '日': [
+    { time: '10:00〜13:00', name: 'オープンマット（フリー）',  color: 'open'     }
+  ]
+};
+
+function renderDaySchedule(day) {
+  const view = document.getElementById('scheduleDayView');
+  if (!view) return;
+  const classes = scheduleData[day];
+  if (!classes || classes.length === 0) {
+    view.innerHTML = '<p class="no-class">この日はお休みです。</p>';
+    return;
+  }
+  // textContentを使って安全にレンダリング（XSS対策）
+  view.innerHTML = '';
+  classes.forEach(c => {
+    const item = document.createElement('div');
+    item.className = 'schedule-day-item class-' + c.color;
+    const time = document.createElement('span');
+    time.className = 'schedule-day-time';
+    time.textContent = c.time;
+    const name = document.createElement('span');
+    name.className = 'schedule-day-name';
+    name.textContent = c.name;
+    item.appendChild(time);
+    item.appendChild(name);
+    view.appendChild(item);
+  });
+}
+
+const dayBtns = document.querySelectorAll('.day-btn');
+if (dayBtns.length > 0) {
+  renderDaySchedule('月');
+  dayBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      dayBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderDaySchedule(btn.dataset.day);
+    });
+  });
+}
+
+/* ------------------------------------------
    9. カテゴリー絞り込みフィルター（news.html）
    ボタンをクリックしてカテゴリーで記事を絞り込む
    ------------------------------------------ */

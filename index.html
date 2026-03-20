@@ -127,46 +127,69 @@
     <section class="pricing section fade-in-section">
       <div class="container">
         <h2 class="section-title">料金プラン</h2>
-        <div class="pricing-cards">
-          <!-- ライトプラン -->
-          <div class="pricing-card">
-            <h3>ライトプラン</h3>
-            <div class="price">¥8,000<span>（税込）</span></div><!-- ← 料金は後から変更してください -->
-            <p class="price-sub">月4回</p><!-- ← 回数は後から変更してください -->
-            <ul class="price-list">
-              <li>通常クラス参加</li>
-              <li>入会金あり</li>
-              <li>ロッカー使用可</li>
-            </ul>
-            <a href="SQUARE_PAYMENT_URL_HERE" class="btn btn-primary">このプランで申し込む</a><!-- ← SquareのURLをここに入れてください -->
+        <div class="pricing-table">
+
+          <!-- 一般会員 -->
+          <div class="pricing-row">
+            <div class="pricing-row-header">
+              <span class="pricing-plan-name">一般会員</span>
+              <span class="pricing-amount">¥12,000<small>/月（税込）</small></span><!-- ← 料金は後から変更してください -->
+              <button class="pricing-detail-btn" aria-expanded="false">詳細 <span class="pricing-arrow">▼</span></button>
+            </div>
+            <div class="pricing-detail-body">
+              <ul class="pricing-detail-list">
+                <li>通い放題</li>
+                <li>全クラス参加可</li>
+                <li>グローブ貸出</li>
+                <li>ロッカー使用可</li>
+                <li>入会金：¥10,000<!-- ← 後から変更してください --></li>
+              </ul>
+            </div>
           </div>
-          <!-- スタンダードプラン（おすすめ） -->
-          <div class="pricing-card pricing-card--featured">
-            <div class="badge">おすすめ</div>
-            <h3>スタンダードプラン</h3>
-            <div class="price">¥12,000<span>（税込）</span></div><!-- ← 料金は後から変更してください -->
-            <p class="price-sub">通い放題</p>
-            <ul class="price-list">
-              <li>全クラス参加</li>
-              <li>入会金あり</li>
-              <li>ロッカー使用可</li>
-              <li>グローブ貸出</li>
-            </ul>
-            <a href="SQUARE_PAYMENT_URL_HERE" class="btn btn-cta">このプランで申し込む</a><!-- ← SquareのURLをここに入れてください -->
+
+          <!-- 学生会員 -->
+          <div class="pricing-row">
+            <div class="pricing-row-header">
+              <span class="pricing-plan-name">学生会員</span>
+              <span class="pricing-amount">¥8,000<small>/月（税込）</small></span><!-- ← 料金は後から変更してください -->
+              <button class="pricing-detail-btn" aria-expanded="false">詳細 <span class="pricing-arrow">▼</span></button>
+            </div>
+            <div class="pricing-detail-body">
+              <ul class="pricing-detail-list">
+                <li>通い放題</li>
+                <li>全クラス参加可</li>
+                <li>ロッカー使用可</li>
+                <li>入会金：¥10,000<!-- ← 後から変更してください --></li>
+                <li>学生証の提示が必要です</li>
+              </ul>
+            </div>
           </div>
-          <!-- 競技プラン -->
-          <div class="pricing-card">
-            <h3>競技プラン</h3>
-            <div class="price">¥15,000<span>（税込）</span></div><!-- ← 料金は後から変更してください -->
-            <p class="price-sub">スパーリングあり</p><!-- ← 内容は後から変更してください -->
-            <ul class="price-list">
-              <li>全クラス参加</li>
-              <li>スパーリング参加</li>
-              <li>試合サポート</li>
-              <li>個別指導</li>
-            </ul>
-            <a href="SQUARE_PAYMENT_URL_HERE" class="btn btn-primary">このプランで申し込む</a><!-- ← SquareのURLをここに入れてください -->
+
+          <!-- 女性会員 -->
+          <div class="pricing-row">
+            <div class="pricing-row-header">
+              <span class="pricing-plan-name">女性会員</span>
+              <span class="pricing-amount">¥10,000<small>/月（税込）</small></span><!-- ← 料金は後から変更してください -->
+              <button class="pricing-detail-btn" aria-expanded="false">詳細 <span class="pricing-arrow">▼</span></button>
+            </div>
+            <div class="pricing-detail-body">
+              <ul class="pricing-detail-list">
+                <li>通い放題</li>
+                <li>女性クラス・全クラス参加可</li>
+                <li>グローブ貸出</li>
+                <li>ロッカー使用可</li>
+                <li>入会金：¥10,000<!-- ← 後から変更してください --></li>
+              </ul>
+            </div>
           </div>
+
+        </div>
+        <!-- Square決済リンク -->
+        <div class="pricing-cta">
+          <p>ご入会のお申し込みはこちら</p>
+          <a href="SQUARE_PAYMENT_URL_HERE" class="btn btn-cta" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-credit-card"></i> お申し込みはこちら（決済ページへ）
+          </a><!-- ← SquareのURLをここに入れてください -->
         </div>
       </div>
     </section>

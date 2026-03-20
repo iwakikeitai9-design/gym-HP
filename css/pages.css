@@ -485,6 +485,81 @@
 /* ------------------------------------------
    クラススケジュール（about.html）
    ------------------------------------------ */
+/* 曜日タブ（スマホのみ表示） */
+.schedule-day-selector {
+  display: none; /* PC/タブレットでは非表示 */
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.day-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: var(--color-white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  transition: all 0.2s;
+}
+
+.day-btn:hover,
+.day-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.schedule-day-view {
+  display: none; /* PC/タブレットでは非表示 */
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.schedule-day-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.schedule-day-time {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+.schedule-day-name {
+  font-size: 1rem;
+}
+
+.no-class {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+}
+
+@media (max-width: 767px) {
+  .schedule-day-selector {
+    display: flex; /* スマホで表示 */
+  }
+  .schedule-day-view {
+    display: flex; /* スマホで表示 */
+  }
+  .schedule-table-wrap {
+    display: none; /* スマホではテーブルを非表示 */
+  }
+  .schedule-legend {
+    display: none; /* スマホでは凡例も非表示 */
+  }
+}
+
 .schedule-note {
   text-align: center;
   color: #777;
@@ -562,13 +637,13 @@
 
 .trainer-profile {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 48px;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
   align-items: center;
 }
 
 .trainer-profile--reverse {
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 1fr 200px;
 }
 
 .trainer-profile--reverse .trainer-profile-img-wrap {

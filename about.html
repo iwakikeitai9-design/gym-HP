@@ -191,7 +191,20 @@
         <h2 class="section-title">クラススケジュール</h2>
         <p class="schedule-note">※スケジュールは変更になる場合があります。最新情報はSNSをご確認ください。<!-- ← 後から変更してください --></p>
 
-        <!-- ↓ HTMLのスケジュール表。後から画像に差し替える場合はこのtableをコメントアウトし、imgタグを追加してください -->
+        <!-- スマホ用：曜日タブ（PCでは非表示） -->
+        <div class="schedule-day-selector">
+          <button class="day-btn active" data-day="月">月</button>
+          <button class="day-btn" data-day="火">火</button>
+          <button class="day-btn" data-day="水">水</button>
+          <button class="day-btn" data-day="木">木</button>
+          <button class="day-btn" data-day="金">金</button>
+          <button class="day-btn" data-day="土">土</button>
+          <button class="day-btn" data-day="日">日</button>
+        </div>
+        <!-- スマホ用：選択した曜日のクラス一覧 -->
+        <div class="schedule-day-view" id="scheduleDayView"></div>
+
+        <!-- ↓ PCで表示するHTMLのスケジュール表。後から画像に差し替える場合はこのtableをコメントアウトし、imgタグを追加してください -->
         <div class="schedule-table-wrap">
           <table class="schedule-table">
             <thead>

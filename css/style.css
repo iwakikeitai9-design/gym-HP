@@ -485,92 +485,114 @@ button {
 }
 
 /* ------------------------------------------
-   料金プランセクション
+   料金プランテーブル（コンパクト・トグル式）
    ------------------------------------------ */
-.pricing-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  align-items: center;
-}
-
-.pricing-card {
-  background: var(--color-white);
+.pricing-table {
+  max-width: 680px;
+  margin: 0 auto 40px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 40px 28px;
-  text-align: center;
+  overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  position: relative;
 }
 
-.pricing-card--featured {
-  background: var(--color-primary);
-  color: var(--color-white);
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(192,57,43,0.35);
+.pricing-row {
+  border-bottom: 1px solid #ddd;
+}
+.pricing-row:last-child {
+  border-bottom: none;
 }
 
-.pricing-card h3 {
+.pricing-row-header {
+  display: flex;
+  align-items: center;
+  padding: 18px 24px;
+  background: var(--color-white);
+  gap: 16px;
+}
+.pricing-row:nth-child(even) .pricing-row-header {
+  background: #fdfaf5;
+}
+
+.pricing-plan-name {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
-  margin-bottom: 16px;
-}
-
-.pricing-card--featured h3 {
-  color: var(--color-white);
-}
-
-.badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-secondary);
-  color: var(--color-white);
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  padding: 4px 20px;
-  border-radius: 20px;
+  flex: 1;
 }
 
-.price {
-  font-family: var(--font-serif);
-  font-size: 2rem;
+.pricing-amount {
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--color-primary);
-  margin: 12px 0 4px;
+  white-space: nowrap;
 }
-.pricing-card--featured .price { color: var(--color-white); }
+.pricing-amount small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #777;
+  margin-left: 2px;
+}
 
-.price span { font-size: 0.9rem; font-weight: 400; }
+.pricing-detail-btn {
+  padding: 6px 14px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #555;
+  background: var(--color-gray);
+  white-space: nowrap;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.pricing-detail-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
 
-.price-sub {
+.pricing-arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+  font-style: normal;
+}
+.pricing-detail-btn[aria-expanded="true"] .pricing-arrow {
+  transform: rotate(180deg);
+}
+
+.pricing-detail-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: var(--color-gray);
+}
+
+.pricing-detail-list {
+  padding: 12px 24px 16px;
+}
+.pricing-detail-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #e8e8e8;
   font-size: 0.9rem;
-  margin-bottom: 20px;
-  opacity: 0.8;
 }
-
-.price-list {
-  text-align: left;
-  margin-bottom: 28px;
+.pricing-detail-list li:last-child {
+  border-bottom: none;
 }
-
-.price-list li {
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.07);
-  font-size: 0.95rem;
-}
-.pricing-card--featured .price-list li {
-  border-bottom-color: rgba(255,255,255,0.2);
-}
-
-.price-list li::before {
+.pricing-detail-list li::before {
   content: '✓ ';
   color: var(--color-cta);
   font-weight: 700;
 }
-.pricing-card--featured .price-list li::before {
-  color: var(--color-secondary);
+
+/* Square決済リンク */
+.pricing-cta {
+  text-align: center;
+  padding: 8px 0 0;
+}
+.pricing-cta p {
+  margin-bottom: 16px;
+  color: #555;
+  font-size: 0.95rem;
 }
 
 /* ------------------------------------------
@@ -762,20 +784,6 @@ button {
    レスポンシブ対応（タブレット：768px〜1023px）
    ------------------------------------------ */
 @media (max-width: 1023px) {
-  .cards-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .pricing-cards {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .pricing-card--featured {
-    transform: scale(1);
-  }
-
   .footer-inner {
     grid-template-columns: 1fr 1fr;
   }
@@ -795,9 +803,22 @@ button {
     align-items: center;
   }
 
-  /* カード */
+  /* カード（スマホでも3列維持・余白を縮小） */
   .cards-3 {
-    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .card {
+    padding: 16px 10px;
+  }
+  .card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .card h3 {
+    font-size: 0.9rem;
+  }
+  .card p {
+    font-size: 0.8rem;
   }
 
   /* アクセス */
