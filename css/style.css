@@ -414,7 +414,8 @@ button {
   height: 100%;
   background-size: cover;
   background-position: center;
-  background-color: var(--color-dark); /* 画像が読み込まれるまでの背景色 */
+  background-color: var(--color-dark);
+  filter: saturate(1.4);
 }
 
 .hero-overlay {
@@ -423,7 +424,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* 半透明の黒でテキストを読みやすく */
+  background: rgba(0, 0, 0, 0.6); /* 暗めのオーバーレイ */
 }
 
 .hero-content {
