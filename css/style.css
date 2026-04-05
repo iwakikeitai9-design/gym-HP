@@ -773,7 +773,13 @@ button {
 }
 
 .two-col-img img {
-  border-radius: 8px;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  display: block;
 }
 
 /* ------------------------------------------
