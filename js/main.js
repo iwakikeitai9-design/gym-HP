@@ -343,15 +343,40 @@ if (privacyModal) {
     document.body.style.overflow = '';
   }
 
+  // フォーカストラップ（モーダル内だけでTabキーが循環する）
+  const focusable = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  function trapFocus(e) {
+    const els = Array.from(privacyModal.querySelectorAll(focusable)).filter(el => !el.disabled);
+    const first = els[0];
+    const last = els[els.length - 1];
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
+    if (e.key === 'Escape') closeModal();
+  }
+
   openBtn.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
   closeFooterBtn.addEventListener('click', closeModal);
   privacyModal.addEventListener('click', (e) => {
     if (e.target === privacyModal) closeModal();
   });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
+
+  privacyModal.addEventListener('keydown', trapFocus);
+
+  // openModal後に最初のフォーカス可能要素へフォーカス移動
+  const _openModal = openModal;
+  openModal = function() {
+    _openModal();
+    const els = Array.from(privacyModal.querySelectorAll(focusable)).filter(el => !el.disabled);
+    if (els.length) els[0].focus();
+  };
+  openBtn.removeEventListener('click', _openModal);
+  openBtn.addEventListener('click', openModal);
 }
 
 /* ------------------------------------------

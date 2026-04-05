@@ -588,6 +588,7 @@ button {
 /* 各プランのお申し込みボタン */
 .pricing-plan-cta {
   margin-top: 16px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
