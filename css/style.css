@@ -584,15 +584,10 @@ button {
   font-weight: 700;
 }
 
-/* Square決済リンク */
-.pricing-cta {
+/* 各プランのお申し込みボタン */
+.pricing-plan-cta {
+  margin-top: 16px;
   text-align: center;
-  padding: 8px 0 0;
-}
-.pricing-cta p {
-  margin-bottom: 16px;
-  color: #555;
-  font-size: 0.95rem;
 }
 
 /* ------------------------------------------

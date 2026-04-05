@@ -37,7 +37,6 @@
           <li><a href="./about.html">ジム紹介</a></li>
           <li><a href="./news.html">お知らせ</a></li>
           <li><a href="./contact.html">お問い合わせ</a></li>
-          <li><a href="./sponsor.html">スポンサー</a></li>
         </ul>
       </nav>
       <!-- ハンバーガーメニューボタン（スマホ用） -->
@@ -54,7 +53,6 @@
         <li><a href="./about.html">ジム紹介</a></li>
         <li><a href="./news.html">お知らせ</a></li>
         <li><a href="./contact.html">お問い合わせ</a></li>
-        <li><a href="./sponsor.html">スポンサー</a></li>
       </ul>
     </nav>
   </header>
@@ -129,67 +127,66 @@
         <h2 class="section-title">料金プラン</h2>
         <div class="pricing-table">
 
-          <!-- 一般会員 -->
+          <!-- 月4回会員 -->
           <div class="pricing-row">
             <div class="pricing-row-header">
-              <span class="pricing-plan-name">一般会員</span>
-              <span class="pricing-amount">¥12,000<small>/月（税込）</small></span><!-- ← 料金は後から変更してください -->
+              <span class="pricing-plan-name">月4回会員</span>
+              <span class="pricing-amount">¥5,500<small>/月（税込）</small></span>
+              <button class="pricing-detail-btn" aria-expanded="false">詳細 <span class="pricing-arrow">▼</span></button>
+            </div>
+            <div class="pricing-detail-body">
+              <ul class="pricing-detail-list">
+                <li>月4回まで参加可能</li>
+                <li>全クラス参加可</li>
+              </ul>
+              <div class="pricing-plan-cta">
+                <a href="https://square.link/u/9Cn9UqiP" class="btn btn-cta" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-credit-card"></i> お申し込みはこちら
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- フルタイム会員 -->
+          <div class="pricing-row">
+            <div class="pricing-row-header">
+              <span class="pricing-plan-name">フルタイム会員</span>
+              <span class="pricing-amount">¥7,700<small>/月（税込）</small></span>
               <button class="pricing-detail-btn" aria-expanded="false">詳細 <span class="pricing-arrow">▼</span></button>
             </div>
             <div class="pricing-detail-body">
               <ul class="pricing-detail-list">
                 <li>通い放題</li>
                 <li>全クラス参加可</li>
-                <li>グローブ貸出</li>
-                <li>ロッカー使用可</li>
-                <li>入会金：¥10,000<!-- ← 後から変更してください --></li>
               </ul>
+              <div class="pricing-plan-cta">
+                <a href="https://square.link/u/ISsKhYCW" class="btn btn-cta" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-credit-card"></i> お申し込みはこちら
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- 学生会員 -->
+          <!-- キッズフルタイム -->
           <div class="pricing-row">
             <div class="pricing-row-header">
-              <span class="pricing-plan-name">学生会員</span>
-              <span class="pricing-amount">¥8,000<small>/月（税込）</small></span><!-- ← 料金は後から変更してください -->
+              <span class="pricing-plan-name">キッズフルタイム</span>
+              <span class="pricing-amount">¥5,500<small>/月（税込）</small></span>
               <button class="pricing-detail-btn" aria-expanded="false">詳細 <span class="pricing-arrow">▼</span></button>
             </div>
             <div class="pricing-detail-body">
               <ul class="pricing-detail-list">
-                <li>通い放題</li>
-                <li>全クラス参加可</li>
-                <li>ロッカー使用可</li>
-                <li>入会金：¥10,000<!-- ← 後から変更してください --></li>
-                <li>学生証の提示が必要です</li>
+                <li>通い放題（キッズ対象）</li>
+                <li>キッズクラス参加可</li>
               </ul>
+              <div class="pricing-plan-cta">
+                <a href="https://square.link/u/nVFFHfjH" class="btn btn-cta" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-credit-card"></i> お申し込みはこちら
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- 女性会員 -->
-          <div class="pricing-row">
-            <div class="pricing-row-header">
-              <span class="pricing-plan-name">女性会員</span>
-              <span class="pricing-amount">¥10,000<small>/月（税込）</small></span><!-- ← 料金は後から変更してください -->
-              <button class="pricing-detail-btn" aria-expanded="false">詳細 <span class="pricing-arrow">▼</span></button>
-            </div>
-            <div class="pricing-detail-body">
-              <ul class="pricing-detail-list">
-                <li>通い放題</li>
-                <li>女性クラス・全クラス参加可</li>
-                <li>グローブ貸出</li>
-                <li>ロッカー使用可</li>
-                <li>入会金：¥10,000<!-- ← 後から変更してください --></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-        <!-- Square決済リンク -->
-        <div class="pricing-cta">
-          <p>ご入会のお申し込みはこちら</p>
-          <a href="SQUARE_PAYMENT_URL_HERE" class="btn btn-cta" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-credit-card"></i> お申し込みはこちら（決済ページへ）
-          </a><!-- ← SquareのURLをここに入れてください -->
         </div>
       </div>
     </section>
@@ -200,10 +197,10 @@
         <h2 class="section-title">アクセス</h2>
         <div class="access-inner">
           <div class="access-info">
-            <p><strong>住所</strong><br>北海道小樽市花園○○<!-- ← 番地を後から追記してください --></p>
-            <p><strong>営業時間</strong><br>平日 18:00〜21:00 / 土日 10:00〜13:00<!-- ← 後から変更してください --></p>
-            <p><strong>定休日</strong><br>月曜日<!-- ← 後から変更してください --></p>
-            <p><strong>電話番号</strong><br>000-0000-0000<!-- ← 後から変更してください --></p>
+            <p><strong>住所</strong><br>〒047-0024 北海道小樽市花園3-12-12 栄信ビル2F</p>
+            <p><strong>営業時間</strong><br>平日 18:00〜21:00 / 土日 10:00〜13:00</p>
+            <p><strong>定休日</strong><br>月曜日</p>
+            <p><strong>電話番号</strong><br>080-1898-9329</p>
           </div>
           <div class="access-map">
             <iframe
@@ -223,24 +220,6 @@
       <div class="container">
         <h2 class="section-title">お知らせ</h2>
         <div class="news-list">
-          <article class="news-item">
-            <time class="news-date">2025.06.01</time>
-            <span class="news-badge badge-event">イベント</span>
-            <h3 class="news-title">夏の無料体験週間を開催します</h3>
-            <p class="news-excerpt">7月中旬に無料体験週間を実施予定です。この機会にぜひご参加ください。</p>
-          </article>
-          <article class="news-item">
-            <time class="news-date">2025.05.15</time>
-            <span class="news-badge badge-result">試合結果</span>
-            <h3 class="news-title">全国大会で入賞しました！</h3>
-            <p class="news-excerpt">先日行われた全国キックボクシング大会にて、当ジム所属選手が準優勝を果たしました。</p>
-          </article>
-          <article class="news-item">
-            <time class="news-date">2025.05.01</time>
-            <span class="news-badge badge-info">お知らせ</span>
-            <h3 class="news-title">営業時間変更のお知らせ</h3>
-            <p class="news-excerpt">6月より土日の営業時間が変更になります。詳細はお知らせページをご確認ください。</p>
-          </article>
         </div>
         <div class="news-more">
           <a href="./news.html" class="link-more">すべてのお知らせを見る →</a>
@@ -254,8 +233,8 @@
     <div class="footer-inner container">
       <div class="footer-info">
         <p class="footer-logo">Desafio</p>
-        <p>北海道小樽市花園○○<!-- ← 住所を後から変更してください --></p>
-        <p>TEL：000-0000-0000<!-- ← 電話番号を後から変更してください --></p>
+        <p>〒047-0024 北海道小樽市花園3-12-12 栄信ビル2F</p>
+        <p>TEL：080-1898-9329</p>
       </div>
       <nav class="footer-nav">
         <ul>
@@ -263,7 +242,6 @@
           <li><a href="./about.html">ジム紹介</a></li>
           <li><a href="./news.html">お知らせ</a></li>
           <li><a href="./contact.html">お問い合わせ</a></li>
-          <li><a href="./sponsor.html">スポンサー</a></li>
         </ul>
       </nav>
       <div class="footer-sns">

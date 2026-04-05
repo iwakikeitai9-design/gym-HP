@@ -254,8 +254,6 @@ if (filterBtns.length > 0) {
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // ページのリロードを止める
-
     let isValid = true;
 
     // エラーメッセージをリセット
@@ -292,14 +290,11 @@ if (contactForm) {
       isValid = false;
     }
 
-    // すべてのバリデーションが通った場合
-    if (isValid) {
-      const successMsg = document.getElementById('formSuccess');
-      successMsg.style.display = 'block';
-      // フォームのトップへスクロール
-      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      contactForm.reset();
+    // バリデーション失敗時はフォーム送信を止める
+    if (!isValid) {
+      e.preventDefault();
     }
+    // バリデーション通過時はFormspreeへ送信
   });
 }
 
