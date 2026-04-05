@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://desafio-otaru-kickboxing.com/sitemap.xml
