@@ -273,7 +273,7 @@ if (contactForm) {
     if (!email.value.trim()) {
       document.getElementById('error-email').textContent = 'メールアドレスを入力してください。';
       isValid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)) {
       document.getElementById('error-email').textContent = '正しいメールアドレスを入力してください。';
       isValid = false;
     }
