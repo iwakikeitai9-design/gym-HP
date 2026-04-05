@@ -12,6 +12,7 @@
   <meta property="og:image" content="https://desafio-otaru-kickboxing.com/images/gym-all.jpg"><!-- ← デプロイ後にURLを変更してください -->
   <link rel="canonical" href="https://desafio-otaru-kickboxing.com/">
   <link rel="icon" href="./images/gym-logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="./images/gym-logo.png">
   <title>Desafio Kickboxing Gym | 小樽のキックボクシングジム</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -250,5 +251,50 @@
 
   <!-- 共通JavaScript -->
   <script src="./js/main.js"></script>
+
+  <!-- 構造化データ（ローカルビジネス情報をGoogleに伝える） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Desafio Kickboxing Gym",
+    "description": "北海道小樽市花園のキックボクシングジム。初心者から競技者まで本格指導。キッズクラスあり。無料体験受付中。",
+    "url": "https://desafio-otaru-kickboxing.com/",
+    "telephone": "080-1898-9329",
+    "email": "desafio.otaru@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "花園3-12-12 栄信ビル2F",
+      "addressLocality": "小樽市",
+      "addressRegion": "北海道",
+      "postalCode": "047-0024",
+      "addressCountry": "JP"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.1888581,
+      "longitude": 141.0000603
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "18:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/desafio_otaru_kickboxing/"
+    ],
+    "image": "https://desafio-otaru-kickboxing.com/images/gym-all.jpg",
+    "priceRange": "¥5,500〜¥7,700"
+  }
+  </script>
 </body>
 </html>
