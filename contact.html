@@ -127,16 +127,19 @@
                 <textarea id="message" name="message" rows="5" placeholder="ご質問・ご要望などお気軽にどうぞ"></textarea>
               </div>
 
+              <!-- スパム対策（非表示） -->
+              <input type="text" name="_gotcha" style="display:none">
+
               <!-- 個人情報への同意 -->
               <div class="form-group form-group--checkbox">
                 <label class="checkbox-label">
                   <input type="checkbox" id="agree" name="agree">
-                  <span>個人情報の取り扱いに同意する</span>
+                  <span><button type="button" class="privacy-link" id="openPrivacy">個人情報の取り扱い</button>に同意する</span>
                 </label>
                 <p class="error-msg" id="error-agree"></p>
               </div>
 
-              <button type="submit" class="btn btn-cta btn-full">送信する</button>
+              <button type="submit" class="btn btn-cta btn-full" id="submitBtn">送信する</button>
             </form>
           </div>
 
@@ -183,6 +186,62 @@
       </div>
     </section>
   </main>
+
+  <!-- 個人情報取り扱いモーダル -->
+  <div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="privacyModalTitle">個人情報の取り扱いについて</h2>
+        <button class="modal-close" id="closePrivacy" aria-label="閉じる">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Desafio Kickboxing Gym（以下「当ジム」）は、お客様の個人情報を以下の方針に基づき適切に取り扱います。</p>
+
+        <h3>1. 事業者の名称・住所</h3>
+        <p>Desafio Kickboxing Gym<br>
+        〒047-0024 北海道小樽市花園3-12-12 栄信ビル2F<br>
+        電話：080-1898-9329</p>
+
+        <h3>2. 個人情報の収集項目</h3>
+        <p>当ジムは、お問い合わせフォームを通じて以下の情報を収集します。</p>
+        <ul>
+          <li>お名前・ふりがな</li>
+          <li>メールアドレス</li>
+          <li>電話番号</li>
+          <li>お問い合わせ内容</li>
+        </ul>
+
+        <h3>3. 個人情報の利用目的</h3>
+        <p>収集した個人情報は、以下の目的にのみ使用します。</p>
+        <ul>
+          <li>お問い合わせ・無料体験のご予約への返答</li>
+          <li>入会手続きおよびサービスに関するご連絡</li>
+        </ul>
+
+        <h3>4. 個人情報の第三者提供</h3>
+        <p>当ジムは、以下の場合を除き、お客様の個人情報を第三者に提供・開示いたしません。</p>
+        <ul>
+          <li>お客様ご本人の同意がある場合</li>
+          <li>法令に基づき開示が求められる場合</li>
+        </ul>
+
+        <h3>5. 個人情報の管理</h3>
+        <p>当ジムは、収集した個人情報の漏えい・滅失・毀損を防止するため、適切な安全管理措置を講じます。利用目的の達成後は、速やかに個人情報を削除します。</p>
+
+        <h3>6. 個人情報の開示・訂正・削除</h3>
+        <p>お客様は、ご自身の個人情報の開示・訂正・削除を当ジムに請求することができます。ご請求の際は、下記のお問い合わせ先までご連絡ください。</p>
+
+        <h3>7. お問い合わせ先</h3>
+        <p>個人情報の取り扱いに関するお問い合わせは、当ジムまでご連絡ください。<br>
+        電話：080-1898-9329</p>
+
+        <p class="modal-updated">制定日：2025年1月1日</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-cta" id="closePrivacyBtn">閉じる</button>
+      </div>
+    </div>
+  </div>
 
   <!-- フッター -->
   <footer class="footer">

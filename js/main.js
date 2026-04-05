@@ -253,7 +253,9 @@ if (filterBtns.length > 0) {
    ------------------------------------------ */
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
     let isValid = true;
 
     // エラーメッセージをリセット
@@ -290,11 +292,65 @@ if (contactForm) {
       isValid = false;
     }
 
-    // バリデーション失敗時はフォーム送信を止める
-    if (!isValid) {
-      e.preventDefault();
+    if (!isValid) return;
+
+    // Formspreeへ非同期送信
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        const successMsg = document.getElementById('formSuccess');
+        successMsg.style.display = 'block';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        contactForm.reset();
+      } else {
+        const data = await response.json();
+        const msg = data.errors ? data.errors.map(e => e.message).join(', ') : '送信に失敗しました。';
+        alert('エラー：' + msg + '\n時間をおいて再度お試しください。');
+      }
+    } catch {
+      alert('送信に失敗しました。ネットワーク接続を確認してください。');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '送信する';
     }
-    // バリデーション通過時はFormspreeへ送信
+  });
+}
+
+/* ------------------------------------------
+   プライバシーポリシーモーダル
+   ------------------------------------------ */
+const privacyModal = document.getElementById('privacyModal');
+if (privacyModal) {
+  const openBtn = document.getElementById('openPrivacy');
+  const closeBtn = document.getElementById('closePrivacy');
+  const closeFooterBtn = document.getElementById('closePrivacyBtn');
+
+  function openModal() {
+    privacyModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    privacyModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  closeFooterBtn.addEventListener('click', closeModal);
+  privacyModal.addEventListener('click', (e) => {
+    if (e.target === privacyModal) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
   });
 }
 
