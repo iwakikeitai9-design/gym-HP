@@ -155,30 +155,38 @@ document.querySelectorAll('.pricing-detail-btn').forEach(btn => {
    ------------------------------------------ */
 const scheduleData = {
   '月': [
-    { time: '18:00〜19:00', name: 'キッズクラス',              color: 'beginner' },
-    { time: '19:30〜21:00', name: 'キックボクシングクラス',    color: 'kick'     }
+    { time: '17:00〜18:15', name: 'キッズキックボクシング',   trainer: '岩城', color: 'kids'      },
+    { time: '18:30〜19:45', name: 'ビギナーキックボクシング', trainer: '岩城', color: 'beginner'  },
+    { time: '20:00〜21:00', name: 'MMA',                      trainer: '小林', color: 'mma'       },
+    { time: '21:00〜22:30', name: 'グラップリング',           trainer: '',     color: 'grappling' }
   ],
   '火': [
-    { time: '18:00〜19:00', name: 'ビギナーキックボクシング',  color: 'beginner' },
-    { time: '19:30〜21:00', name: '女性クラス',                color: 'women'    }
+    { time: '19:00〜20:00', name: 'キックボクシング',         trainer: '辻',   color: 'kick'     },
+    { time: '20:45〜22:30', name: 'BJJ',                      trainer: '小林', color: 'bjj'      }
   ],
   '水': [
-    { time: '18:00〜19:00', name: 'キッズクラス',              color: 'beginner' },
-    { time: '19:30〜21:00', name: 'キックボクシングクラス',    color: 'kick'     }
+    { time: '17:30〜18:45', name: 'キッズキックボクシング',   trainer: '岩城', color: 'kids'     },
+    { time: '19:00〜19:45', name: 'レディースキック',         trainer: '岩城', color: 'ladies'   },
+    { time: '20:00〜21:15', name: 'ビギナーキックボクシング', trainer: '岩城', color: 'beginner' }
   ],
   '木': [
-    { time: '18:00〜19:00', name: 'ビギナーキックボクシング',  color: 'beginner' },
-    { time: '19:30〜21:00', name: '女性クラス',                color: 'women'    }
+    { time: '16:30〜18:00', name: 'キッズBJJ',                trainer: '小林', color: 'kids-bjj' },
+    { time: '18:30〜20:00', name: 'BJJ',                      trainer: '小林', color: 'bjj'      }
   ],
   '金': [
-    { time: '18:00〜19:00', name: 'キッズクラス',              color: 'beginner' },
-    { time: '19:30〜21:00', name: 'キックボクシングクラス',    color: 'kick'     }
+    { time: '17:30〜18:45', name: 'キッズキックボクシング',   trainer: '岩城', color: 'kids'     },
+    { time: '19:00〜20:00', name: 'キックボクシング',         trainer: '岩城', color: 'kick'     },
+    { time: '20:15〜22:00', name: 'BJJ',                      trainer: '小林', color: 'bjj'      }
   ],
   '土': [
-    { time: '10:00〜13:00', name: 'オープンマット（フリー）',  color: 'open'     }
+    { time: '14:30〜16:00', name: 'キッズBJJ',                trainer: '小林', color: 'kids-bjj' },
+    { time: '17:00〜18:15', name: 'ビギナーキックボクシング', trainer: '岩城', color: 'beginner' },
+    { time: '18:30〜19:30', name: 'キックボクシング',         trainer: '岩城', color: 'kick'     },
+    { time: '20:30〜22:00', name: 'BJJ',                      trainer: '宮保', color: 'bjj'      }
   ],
   '日': [
-    { time: '10:00〜13:00', name: 'オープンマット（フリー）',  color: 'open'     }
+    { time: '9:00〜10:30',  name: 'キッズBJJ',                trainer: '小林', color: 'kids-bjj' },
+    { time: '10:30〜12:30', name: 'BJJ',                      trainer: '小林', color: 'bjj'      }
   ]
 };
 
@@ -186,24 +194,33 @@ function renderDaySchedule(day) {
   const view = document.getElementById('scheduleDayView');
   if (!view) return;
   const classes = scheduleData[day];
+  view.innerHTML = '';
   if (!classes || classes.length === 0) {
-    view.innerHTML = '<p class="no-class">この日はお休みです。</p>';
+    const p = document.createElement('p');
+    p.className = 'no-class';
+    p.textContent = 'この日のクラスはありません。';
+    view.appendChild(p);
     return;
   }
-  // textContentを使って安全にレンダリング（XSS対策）
-  view.innerHTML = '';
+  // XSS対策：textContent / DOM生成で安全にレンダリング
   classes.forEach(c => {
-    const item = document.createElement('div');
-    item.className = 'schedule-day-item class-' + c.color;
-    const time = document.createElement('span');
-    time.className = 'schedule-day-time';
+    const entry = document.createElement('div');
+    entry.className = 'sc-entry sc-' + c.color;
+
+    const time = document.createElement('time');
     time.textContent = c.time;
+
     const name = document.createElement('span');
-    name.className = 'schedule-day-name';
+    name.className = 'sc-entry-name';
     name.textContent = c.name;
-    item.appendChild(time);
-    item.appendChild(name);
-    view.appendChild(item);
+
+    const trainer = document.createElement('small');
+    if (c.trainer) trainer.textContent = c.trainer;
+
+    entry.appendChild(time);
+    entry.appendChild(name);
+    if (c.trainer) entry.appendChild(trainer);
+    view.appendChild(entry);
   });
 }
 
@@ -231,44 +248,29 @@ if (dayBtns.length > 0) {
     return window.innerWidth <= 767;
   }
 
-  // クラスアイテムのクリックハイライト
-  classes.forEach(cls => {
-    cls.addEventListener('click', (e) => {
-      // スマホでのアコーディオン誤作動を防ぐ（ヘッダークリックではない）
-      const wasSelected = cls.classList.contains('selected');
-      // 全解除
-      classes.forEach(c => c.classList.remove('selected'));
-      // 同じものをクリックした場合は解除だけ、違うものなら選択
-      if (!wasSelected) cls.classList.add('selected');
+  // sc-entryのクリックハイライト（テーブル行とモバイル日表示共通）
+  function bindEntryClicks() {
+    document.querySelectorAll('.sc-entry').forEach(entry => {
+      entry.addEventListener('click', () => {
+        const wasSelected = entry.classList.contains('selected');
+        document.querySelectorAll('.sc-entry').forEach(e => e.classList.remove('selected'));
+        if (!wasSelected) entry.classList.add('selected');
+      });
     });
-  });
-
-  // アコーディオン（スマホ用）：曜日ヘッダーをタップして開閉
-  cards.forEach(card => {
-    const header = card.querySelector('.schedule-card-header');
-    if (!header) return;
-    header.addEventListener('click', () => {
-      if (!isMobile()) return;
-      const isOpen = card.classList.contains('open');
-      cards.forEach(c => c.classList.remove('open'));
-      if (!isOpen) card.classList.add('open');
-    });
-  });
-
-  // 初期状態：スマホなら今日の曜日のカードを開く（なければ月曜）
-  function openTodayOrFirst() {
-    if (!isMobile()) return;
-    const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
-    const todayName = dayNames[new Date().getDay()] + '曜日';
-    let target = Array.from(cards).find(c => {
-      const h = c.querySelector('.schedule-card-header');
-      return h && h.textContent.trim() === todayName;
-    });
-    if (!target) target = cards[0];
-    target.classList.add('open');
   }
+  bindEntryClicks();
 
-  openTodayOrFirst();
+  // モバイル：今日の曜日タブを自動選択
+  if (dayBtns.length > 0) {
+    const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
+    const todayKey = dayNames[new Date().getDay()];
+    const todayBtn = Array.from(dayBtns).find(b => b.dataset.day === todayKey);
+    if (todayBtn) {
+      dayBtns.forEach(b => b.classList.remove('active'));
+      todayBtn.classList.add('active');
+      renderDaySchedule(todayKey);
+    }
+  }
 })();
 
 /* ------------------------------------------

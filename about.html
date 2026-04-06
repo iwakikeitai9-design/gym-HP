@@ -163,178 +163,92 @@
     <section class="schedule section fade-in-section" style="background-color: var(--color-gray);">
       <div class="container">
         <h2 class="section-title">クラススケジュール</h2>
-        <div class="schedule-note">
-          <i class="fa-solid fa-door-open"></i>
-          <div>
-            <strong>オープンマット</strong>
-            <span>毎日 9:00〜23:00</span>
-            <small>クラスのない時間帯は自由に練習できます</small>
-          </div>
+        <p class="schedule-note">※スケジュールは変更になる場合があります。最新情報は<a href="https://www.instagram.com/desafio_otaru_kickboxing/" target="_blank" rel="noopener noreferrer">Instagram</a>をご確認ください。</p>
+
+        <!-- スマホ用：曜日タブ（PCでは非表示） -->
+        <div class="schedule-day-selector">
+          <button class="day-btn active" data-day="月">月</button>
+          <button class="day-btn" data-day="火">火</button>
+          <button class="day-btn" data-day="水">水</button>
+          <button class="day-btn" data-day="木">木</button>
+          <button class="day-btn" data-day="金">金</button>
+          <button class="day-btn" data-day="土">土</button>
+          <button class="day-btn" data-day="日">日</button>
         </div>
+        <div class="schedule-day-view" id="scheduleDayView"></div>
 
-        <div class="schedule-grid">
-
-          <!-- 月曜日 -->
-          <div class="schedule-card">
-            <div class="schedule-card-header">月曜日</div>
-            <div class="schedule-card-classes">
-              <div class="sc-class sc-kids">
-                <span class="sc-time">17:00〜18:15</span>
-                <span class="sc-name">キッズキックボクシング</span>
-                <span class="sc-trainer">岩城</span>
-              </div>
-              <div class="sc-class sc-beginner">
-                <span class="sc-time">18:30〜19:45</span>
-                <span class="sc-name">ビギナーキックボクシング</span>
-                <span class="sc-trainer">岩城</span>
-              </div>
-              <div class="sc-class sc-mma">
-                <span class="sc-time">20:00〜21:00</span>
-                <span class="sc-name">MMA</span>
-                <span class="sc-trainer">小林</span>
-              </div>
-              <div class="sc-class sc-grappling">
-                <span class="sc-time">21:00〜22:30</span>
-                <span class="sc-name">グラップリング</span>
-                <span class="sc-trainer"></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 火曜日 -->
-          <div class="schedule-card">
-            <div class="schedule-card-header">火曜日</div>
-            <div class="schedule-card-classes">
-              <div class="sc-class sc-kick">
-                <span class="sc-time">19:00〜20:00</span>
-                <span class="sc-name">キックボクシング</span>
-                <span class="sc-trainer">辻</span>
-              </div>
-              <div class="sc-class sc-bjj">
-                <span class="sc-time">20:45〜22:30</span>
-                <span class="sc-name">BJJ</span>
-                <span class="sc-trainer">小林</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 水曜日 -->
-          <div class="schedule-card">
-            <div class="schedule-card-header">水曜日</div>
-            <div class="schedule-card-classes">
-              <div class="sc-class sc-kids">
-                <span class="sc-time">17:30〜18:45</span>
-                <span class="sc-name">キッズキックボクシング</span>
-                <span class="sc-trainer">岩城</span>
-              </div>
-              <div class="sc-class sc-ladies">
-                <span class="sc-time">19:00〜19:45</span>
-                <span class="sc-name">レディースキック</span>
-                <span class="sc-trainer">岩城</span>
-              </div>
-              <div class="sc-class sc-beginner">
-                <span class="sc-time">20:00〜21:15</span>
-                <span class="sc-name">ビギナーキックボクシング</span>
-                <span class="sc-trainer">岩城</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 木曜日 -->
-          <div class="schedule-card">
-            <div class="schedule-card-header">木曜日</div>
-            <div class="schedule-card-classes">
-              <div class="sc-class sc-kids-bjj">
-                <span class="sc-time">16:30〜18:00</span>
-                <span class="sc-name">キッズBJJ</span>
-                <span class="sc-trainer">小林</span>
-              </div>
-              <div class="sc-class sc-bjj">
-                <span class="sc-time">18:30〜20:00</span>
-                <span class="sc-name">BJJ</span>
-                <span class="sc-trainer">小林</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 金曜日 -->
-          <div class="schedule-card">
-            <div class="schedule-card-header">金曜日</div>
-            <div class="schedule-card-classes">
-              <div class="sc-class sc-kids">
-                <span class="sc-time">17:30〜18:45</span>
-                <span class="sc-name">キッズキックボクシング</span>
-                <span class="sc-trainer">岩城</span>
-              </div>
-              <div class="sc-class sc-kick">
-                <span class="sc-time">19:00〜20:00</span>
-                <span class="sc-name">キックボクシング</span>
-                <span class="sc-trainer">岩城</span>
-              </div>
-              <div class="sc-class sc-bjj">
-                <span class="sc-time">20:15〜22:00</span>
-                <span class="sc-name">BJJ</span>
-                <span class="sc-trainer">小林</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 土曜日 -->
-          <div class="schedule-card">
-            <div class="schedule-card-header">土曜日</div>
-            <div class="schedule-card-classes">
-              <div class="sc-class sc-kids-bjj">
-                <span class="sc-time">14:30〜16:00</span>
-                <span class="sc-name">キッズBJJ</span>
-                <span class="sc-trainer">小林</span>
-              </div>
-              <div class="sc-class sc-beginner">
-                <span class="sc-time">17:00〜18:15</span>
-                <span class="sc-name">ビギナーキックボクシング</span>
-                <span class="sc-trainer">岩城</span>
-              </div>
-              <div class="sc-class sc-kick">
-                <span class="sc-time">18:30〜19:30</span>
-                <span class="sc-name">キックボクシング</span>
-                <span class="sc-trainer">岩城</span>
-              </div>
-              <div class="sc-class sc-bjj">
-                <span class="sc-time">20:30〜22:00</span>
-                <span class="sc-name">BJJ</span>
-                <span class="sc-trainer">宮保</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 日曜日 -->
-          <div class="schedule-card">
-            <div class="schedule-card-header">日曜日</div>
-            <div class="schedule-card-classes">
-              <div class="sc-class sc-kids-bjj">
-                <span class="sc-time">9:00〜10:30</span>
-                <span class="sc-name">キッズBJJ</span>
-                <span class="sc-trainer">小林</span>
-              </div>
-              <div class="sc-class sc-bjj">
-                <span class="sc-time">10:30〜12:30</span>
-                <span class="sc-name">BJJ</span>
-                <span class="sc-trainer">小林</span>
-              </div>
-            </div>
-          </div>
-
+        <!-- PC用：7列スケジュール表 -->
+        <div class="schedule-table-wrap">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+                <th>日</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- 月曜 -->
+                <td class="day-col">
+                  <div class="sc-entry sc-kids"><time>17:00〜18:15</time><span class="sc-entry-name">キッズキック</span><small>岩城</small></div>
+                  <div class="sc-entry sc-beginner"><time>18:30〜19:45</time><span class="sc-entry-name">ビギナー</span><small>岩城</small></div>
+                  <div class="sc-entry sc-mma"><time>20:00〜21:00</time><span class="sc-entry-name">MMA</span><small>小林</small></div>
+                  <div class="sc-entry sc-grappling"><time>21:00〜22:30</time><span class="sc-entry-name">グラップリング</span><small></small></div>
+                </td>
+                <!-- 火曜 -->
+                <td class="day-col">
+                  <div class="sc-entry sc-kick"><time>19:00〜20:00</time><span class="sc-entry-name">キックボクシング</span><small>辻</small></div>
+                  <div class="sc-entry sc-bjj"><time>20:45〜22:30</time><span class="sc-entry-name">BJJ</span><small>小林</small></div>
+                </td>
+                <!-- 水曜 -->
+                <td class="day-col">
+                  <div class="sc-entry sc-kids"><time>17:30〜18:45</time><span class="sc-entry-name">キッズキック</span><small>岩城</small></div>
+                  <div class="sc-entry sc-ladies"><time>19:00〜19:45</time><span class="sc-entry-name">レディース</span><small>岩城</small></div>
+                  <div class="sc-entry sc-beginner"><time>20:00〜21:15</time><span class="sc-entry-name">ビギナー</span><small>岩城</small></div>
+                </td>
+                <!-- 木曜 -->
+                <td class="day-col">
+                  <div class="sc-entry sc-kids-bjj"><time>16:30〜18:00</time><span class="sc-entry-name">キッズBJJ</span><small>小林</small></div>
+                  <div class="sc-entry sc-bjj"><time>18:30〜20:00</time><span class="sc-entry-name">BJJ</span><small>小林</small></div>
+                </td>
+                <!-- 金曜 -->
+                <td class="day-col">
+                  <div class="sc-entry sc-kids"><time>17:30〜18:45</time><span class="sc-entry-name">キッズキック</span><small>岩城</small></div>
+                  <div class="sc-entry sc-kick"><time>19:00〜20:00</time><span class="sc-entry-name">キックボクシング</span><small>岩城</small></div>
+                  <div class="sc-entry sc-bjj"><time>20:15〜22:00</time><span class="sc-entry-name">BJJ</span><small>小林</small></div>
+                </td>
+                <!-- 土曜 -->
+                <td class="day-col">
+                  <div class="sc-entry sc-kids-bjj"><time>14:30〜16:00</time><span class="sc-entry-name">キッズBJJ</span><small>小林</small></div>
+                  <div class="sc-entry sc-beginner"><time>17:00〜18:15</time><span class="sc-entry-name">ビギナー</span><small>岩城</small></div>
+                  <div class="sc-entry sc-kick"><time>18:30〜19:30</time><span class="sc-entry-name">キックボクシング</span><small>岩城</small></div>
+                  <div class="sc-entry sc-bjj"><time>20:30〜22:00</time><span class="sc-entry-name">BJJ</span><small>宮保</small></div>
+                </td>
+                <!-- 日曜 -->
+                <td class="day-col">
+                  <div class="sc-entry sc-kids-bjj"><time>9:00〜10:30</time><span class="sc-entry-name">キッズBJJ</span><small>小林</small></div>
+                  <div class="sc-entry sc-bjj"><time>10:30〜12:30</time><span class="sc-entry-name">BJJ</span><small>小林</small></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <!-- 凡例 -->
-        <div class="schedule-legend-new">
-          <span class="scl-item sc-kick">キックボクシング</span>
-          <span class="scl-item sc-beginner">ビギナー</span>
-          <span class="scl-item sc-kids">キッズキック</span>
-          <span class="scl-item sc-ladies">レディース</span>
-          <span class="scl-item sc-bjj">BJJ</span>
-          <span class="scl-item sc-kids-bjj">キッズBJJ</span>
-          <span class="scl-item sc-mma">MMA</span>
-          <span class="scl-item sc-grappling">グラップリング</span>
+        <div class="schedule-legend">
+          <span class="legend-item sc-kick">キックボクシング</span>
+          <span class="legend-item sc-beginner">ビギナー</span>
+          <span class="legend-item sc-kids">キッズキック</span>
+          <span class="legend-item sc-ladies">レディース</span>
+          <span class="legend-item sc-bjj">BJJ</span>
+          <span class="legend-item sc-kids-bjj">キッズBJJ</span>
+          <span class="legend-item sc-mma">MMA</span>
+          <span class="legend-item sc-grappling">グラップリング</span>
         </div>
       </div>
     </section>

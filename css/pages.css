@@ -561,104 +561,151 @@
 }
 
 .schedule-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  color: #fff;
-  padding: 20px 32px;
-  border-radius: 12px;
-  margin-bottom: 28px;
+  text-align: center;
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  line-height: 1.7;
 }
 
-.schedule-note i {
-  font-size: 1.8rem;
-  color: #f59e0b;
-  flex-shrink: 0;
-}
-
-.schedule-note div {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.schedule-note strong {
-  font-size: 1.05rem;
-  letter-spacing: 0.05em;
-}
-
-.schedule-note span {
-  font-size: 1rem;
+.schedule-note a {
+  color: var(--color-primary);
   font-weight: 700;
-  color: #fcd34d;
-}
-
-.schedule-note small {
-  font-size: 0.85rem;
-  color: #94a3b8;
-  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .schedule-table-wrap {
-  overflow-x: auto; /* スマホでも横スクロールで見られる */
-  margin-bottom: 24px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.1);
 }
 
 .schedule-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
-  font-size: 0.9rem;
-}
-
-.schedule-table th,
-.schedule-table td {
-  border: 1px solid #ddd;
-  padding: 14px 8px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 1.5;
+  min-width: 700px;
+  background: #fff;
 }
 
 .schedule-table thead th {
   background: var(--color-dark);
   color: var(--color-white);
   font-weight: 700;
+  font-size: 1.05rem;
+  padding: 14px 8px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  border-right: 1px solid #3a4a5c;
 }
 
-.schedule-table .time-col {
-  background: var(--color-gray);
+.schedule-table thead th:last-child {
+  border-right: none;
+}
+
+.day-col {
+  vertical-align: top;
+  padding: 8px;
+  border-right: 1px solid #f0f0f0;
+  width: calc(100% / 7);
+}
+
+.day-col:last-child {
+  border-right: none;
+}
+
+/* テーブル内クラスエントリー */
+.sc-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 10px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  border-left: 4px solid transparent;
+  transition: opacity 0.15s, transform 0.1s;
+  cursor: pointer;
+}
+
+.sc-entry:last-child {
+  margin-bottom: 0;
+}
+
+.sc-entry:hover {
+  opacity: 0.8;
+  transform: translateX(2px);
+}
+
+.sc-entry.selected {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+}
+
+.sc-entry time {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.sc-entry-name {
+  font-size: 0.92rem;
   font-weight: 700;
-  font-size: 0.85rem;
-  white-space: nowrap;
+  line-height: 1.3;
 }
 
-.class-beginner { background: #fef9e7; color: #7d6608; font-weight: 700; }
-.class-kick     { background: #fdedec; color: var(--color-primary); font-weight: 700; }
-.class-women    { background: #fdf2f8; color: #8e44ad; font-weight: 700; }
-.class-open     { background: #eafaf1; color: #1e8449; font-weight: 700; }
+.sc-entry small {
+  font-size: 0.75rem;
+  color: #aaa;
+}
 
+/* エントリー色分け */
+.sc-entry.sc-kick      { background: #fff1f0; border-left-color: #C0392B; }
+.sc-entry.sc-beginner  { background: #fff8f0; border-left-color: #e67e22; }
+.sc-entry.sc-kids      { background: #eff6ff; border-left-color: #2980b9; }
+.sc-entry.sc-ladies    { background: #fdf4ff; border-left-color: #8e44ad; }
+.sc-entry.sc-bjj       { background: #f5f0ff; border-left-color: #5b2d8e; }
+.sc-entry.sc-kids-bjj  { background: #f0fdf4; border-left-color: #1a7a4a; }
+.sc-entry.sc-mma       { background: #f1f5f9; border-left-color: #475569; }
+.sc-entry.sc-grappling { background: #ecfeff; border-left-color: #0e7490; }
+
+/* エントリー内クラス名の色 */
+.sc-entry.sc-kick .sc-entry-name      { color: #C0392B; }
+.sc-entry.sc-beginner .sc-entry-name  { color: #c0621a; }
+.sc-entry.sc-kids .sc-entry-name      { color: #2980b9; }
+.sc-entry.sc-ladies .sc-entry-name    { color: #8e44ad; }
+.sc-entry.sc-bjj .sc-entry-name       { color: #5b2d8e; }
+.sc-entry.sc-kids-bjj .sc-entry-name  { color: #1a7a4a; }
+.sc-entry.sc-mma .sc-entry-name       { color: #1e293b; }
+.sc-entry.sc-grappling .sc-entry-name { color: #0e7490; }
+
+/* 凡例 */
 .schedule-legend {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .legend-item {
   padding: 6px 16px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
+  border: 2px solid transparent;
 }
 
-.legend-beginner { background: #fef9e7; color: #7d6608; }
-.legend-kick     { background: #fdedec; color: var(--color-primary); }
-.legend-women    { background: #fdf2f8; color: #8e44ad; }
-.legend-open     { background: #eafaf1; color: #1e8449; }
+.legend-item.sc-kick      { background: #fff1f0; color: #C0392B; border-color: #C0392B; }
+.legend-item.sc-beginner  { background: #fff8f0; color: #c0621a; border-color: #e67e22; }
+.legend-item.sc-kids      { background: #eff6ff; color: #2980b9; border-color: #2980b9; }
+.legend-item.sc-ladies    { background: #fdf4ff; color: #8e44ad; border-color: #8e44ad; }
+.legend-item.sc-bjj       { background: #f5f0ff; color: #5b2d8e; border-color: #5b2d8e; }
+.legend-item.sc-kids-bjj  { background: #f0fdf4; color: #1a7a4a; border-color: #1a7a4a; }
+.legend-item.sc-mma       { background: #f1f5f9; color: #1e293b; border-color: #475569; }
+.legend-item.sc-grappling { background: #ecfeff; color: #0e7490; border-color: #0e7490; }
 
 /* ------------------------------------------
    スケジュール：曜日カードグリッド
