@@ -220,6 +220,40 @@ if (dayBtns.length > 0) {
 }
 
 /* ------------------------------------------
+   8d. スケジュールカードアコーディオン（スマホ用）
+   曜日ヘッダーをタップしてクラス一覧を開閉する
+   ------------------------------------------ */
+(function() {
+  const cards = document.querySelectorAll('.schedule-card');
+  if (cards.length === 0) return;
+
+  function isMobile() {
+    return window.innerWidth <= 767;
+  }
+
+  cards.forEach(card => {
+    const header = card.querySelector('.schedule-card-header');
+    if (!header) return;
+    header.addEventListener('click', () => {
+      if (!isMobile()) return;
+      const isOpen = card.classList.contains('open');
+      cards.forEach(c => c.classList.remove('open'));
+      if (!isOpen) card.classList.add('open');
+    });
+  });
+
+  // 初期状態：スマホなら最初のカード（月曜）を開く
+  function setInitial() {
+    if (isMobile()) {
+      const hasOpen = Array.from(cards).some(c => c.classList.contains('open'));
+      if (!hasOpen) cards[0].classList.add('open');
+    }
+  }
+
+  setInitial();
+})();
+
+/* ------------------------------------------
    9. カテゴリー絞り込みフィルター（news.html）
    ボタンをクリックしてカテゴリーで記事を絞り込む
    ------------------------------------------ */
