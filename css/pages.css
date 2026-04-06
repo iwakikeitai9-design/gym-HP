@@ -627,6 +627,123 @@
 .legend-open     { background: #eafaf1; color: #1e8449; }
 
 /* ------------------------------------------
+   スケジュール：曜日カードグリッド
+   ------------------------------------------ */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.schedule-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.schedule-card-header {
+  background: var(--color-dark);
+  color: var(--color-white);
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px;
+  letter-spacing: 0.05em;
+}
+
+.schedule-card-classes {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #eee;
+}
+
+.sc-class {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  gap: 2px;
+  background: #fff;
+}
+
+.sc-time {
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.sc-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.sc-trainer {
+  font-size: 0.78rem;
+  color: #666;
+}
+
+/* クラス色分け */
+.sc-kick      { border-left: 4px solid #C0392B; }
+.sc-kick .sc-name { color: #C0392B; }
+
+.sc-beginner  { border-left: 4px solid #e67e22; }
+.sc-beginner .sc-name { color: #e67e22; }
+
+.sc-kids      { border-left: 4px solid #2980b9; }
+.sc-kids .sc-name { color: #2980b9; }
+
+.sc-ladies    { border-left: 4px solid #8e44ad; }
+.sc-ladies .sc-name { color: #8e44ad; }
+
+.sc-bjj       { border-left: 4px solid #5b2d8e; }
+.sc-bjj .sc-name { color: #5b2d8e; }
+
+.sc-kids-bjj  { border-left: 4px solid #1a7a4a; }
+.sc-kids-bjj .sc-name { color: #1a7a4a; }
+
+.sc-mma       { border-left: 4px solid #2c3e50; }
+.sc-mma .sc-name { color: #2c3e50; }
+
+.sc-grappling { border-left: 4px solid #00838f; }
+.sc-grappling .sc-name { color: #00838f; }
+
+/* 凡例 */
+.schedule-legend-new {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.scl-item {
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: #f5f5f5;
+}
+
+.scl-item.sc-kick      { background: #fdedec; color: #C0392B; }
+.scl-item.sc-beginner  { background: #fef5ec; color: #e67e22; }
+.scl-item.sc-kids      { background: #ebf5fb; color: #2980b9; }
+.scl-item.sc-ladies    { background: #f5eef8; color: #8e44ad; }
+.scl-item.sc-bjj       { background: #f0eaf8; color: #5b2d8e; }
+.scl-item.sc-kids-bjj  { background: #e8f5ee; color: #1a7a4a; }
+.scl-item.sc-mma       { background: #eaecee; color: #2c3e50; }
+.scl-item.sc-grappling { background: #e0f7fa; color: #00838f; }
+
+@media (max-width: 1023px) {
+  .schedule-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .schedule-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ------------------------------------------
    トレーナープロフィール（about.html リデザイン）
    ------------------------------------------ */
 .trainer-grid {
