@@ -545,18 +545,42 @@
   padding: 20px;
 }
 
+/* スマホでも全曜日テーブルを表示（横スクロール対応） */
 @media (max-width: 767px) {
-  .schedule-day-selector {
-    display: flex; /* スマホで表示 */
+  .schedule-table {
+    min-width: 560px;
   }
-  .schedule-day-view {
-    display: flex; /* スマホで表示 */
+
+  .schedule-table thead th {
+    font-size: 0.92rem;
+    padding: 12px 4px;
+    letter-spacing: 0.04em;
   }
-  .schedule-table-wrap {
-    display: none; /* スマホではテーブルを非表示 */
+
+  .day-col {
+    padding: 5px 4px;
   }
-  .schedule-legend {
-    display: none; /* スマホでは凡例も非表示 */
+
+  .sc-entry {
+    padding: 7px 7px;
+    margin-bottom: 4px;
+  }
+
+  .sc-entry time {
+    font-size: 0.72rem;
+  }
+
+  .sc-entry-name {
+    font-size: 0.82rem;
+  }
+
+  .sc-entry small {
+    font-size: 0.68rem;
+  }
+
+  .legend-item {
+    font-size: 0.82rem;
+    padding: 5px 12px;
   }
 }
 
@@ -581,6 +605,21 @@
   margin-bottom: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* スマホ向け横スクロールヒント */
+@media (max-width: 620px) {
+  .schedule-table-wrap::before {
+    content: '← 横にスクロールできます →';
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #999;
+    padding: 6px 0;
+    background: #f8f9fa;
+    border-radius: 12px 12px 0 0;
+  }
 }
 
 .schedule-table {
@@ -696,6 +735,35 @@
   font-size: 0.88rem;
   font-weight: 700;
   border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+  user-select: none;
+}
+
+.legend-item:hover {
+  opacity: 0.8;
+}
+
+/* 凡例フィルター：アクティブ状態（タップで選択） */
+.legend-item.active {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px currentColor;
+}
+
+/* 凡例フィルター：非該当エントリーを薄く */
+.sc-entry {
+  transition: opacity 0.2s, transform 0.1s, filter 0.2s;
+}
+
+.sc-entry.dimmed {
+  opacity: 0.15;
+  filter: grayscale(0.6);
+}
+
+/* 個別エントリー選択ハイライト */
+.sc-entry.selected {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .legend-item.sc-kick      { background: #fff1f0; color: #C0392B; border-color: #C0392B; }

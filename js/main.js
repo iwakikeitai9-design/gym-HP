@@ -237,40 +237,43 @@ if (dayBtns.length > 0) {
 }
 
 /* ------------------------------------------
-   8d. スケジュール：クラスハイライト＆アコーディオン
+   8d. スケジュール：凡例フィルター＆エントリーハイライト
    ------------------------------------------ */
 (function() {
-  const cards = document.querySelectorAll('.schedule-card');
-  const classes = document.querySelectorAll('.sc-class');
-  if (cards.length === 0) return;
+  const legendItems = document.querySelectorAll('.legend-item');
+  const entries     = document.querySelectorAll('.sc-entry');
+  if (legendItems.length === 0 && entries.length === 0) return;
 
-  function isMobile() {
-    return window.innerWidth <= 767;
+  // 全状態リセット
+  function clearAll() {
+    legendItems.forEach(l => l.classList.remove('active'));
+    entries.forEach(e => e.classList.remove('dimmed', 'selected'));
   }
 
-  // sc-entryのクリックハイライト（テーブル行とモバイル日表示共通）
-  function bindEntryClicks() {
-    document.querySelectorAll('.sc-entry').forEach(entry => {
-      entry.addEventListener('click', () => {
-        const wasSelected = entry.classList.contains('selected');
-        document.querySelectorAll('.sc-entry').forEach(e => e.classList.remove('selected'));
-        if (!wasSelected) entry.classList.add('selected');
-      });
+  // 凡例クリック → 該当クラス以外をdim
+  legendItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const colorClass = Array.from(item.classList).find(c => c.startsWith('sc-'));
+      if (!colorClass) return;
+      const isActive = item.classList.contains('active');
+      clearAll();
+      if (!isActive) {
+        item.classList.add('active');
+        entries.forEach(e => {
+          if (!e.classList.contains(colorClass)) e.classList.add('dimmed');
+        });
+      }
     });
-  }
-  bindEntryClicks();
+  });
 
-  // モバイル：今日の曜日タブを自動選択
-  if (dayBtns.length > 0) {
-    const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
-    const todayKey = dayNames[new Date().getDay()];
-    const todayBtn = Array.from(dayBtns).find(b => b.dataset.day === todayKey);
-    if (todayBtn) {
-      dayBtns.forEach(b => b.classList.remove('active'));
-      todayBtn.classList.add('active');
-      renderDaySchedule(todayKey);
-    }
-  }
+  // エントリークリック → 個別ハイライト（フィルター解除）
+  entries.forEach(entry => {
+    entry.addEventListener('click', () => {
+      const wasSelected = entry.classList.contains('selected');
+      clearAll();
+      if (!wasSelected) entry.classList.add('selected');
+    });
+  });
 })();
 
 /* ------------------------------------------
