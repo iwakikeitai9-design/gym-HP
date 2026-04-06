@@ -220,17 +220,30 @@ if (dayBtns.length > 0) {
 }
 
 /* ------------------------------------------
-   8d. スケジュールカードアコーディオン（スマホ用）
-   曜日ヘッダーをタップしてクラス一覧を開閉する
+   8d. スケジュール：クラスハイライト＆アコーディオン
    ------------------------------------------ */
 (function() {
   const cards = document.querySelectorAll('.schedule-card');
+  const classes = document.querySelectorAll('.sc-class');
   if (cards.length === 0) return;
 
   function isMobile() {
     return window.innerWidth <= 767;
   }
 
+  // クラスアイテムのクリックハイライト
+  classes.forEach(cls => {
+    cls.addEventListener('click', (e) => {
+      // スマホでのアコーディオン誤作動を防ぐ（ヘッダークリックではない）
+      const wasSelected = cls.classList.contains('selected');
+      // 全解除
+      classes.forEach(c => c.classList.remove('selected'));
+      // 同じものをクリックした場合は解除だけ、違うものなら選択
+      if (!wasSelected) cls.classList.add('selected');
+    });
+  });
+
+  // アコーディオン（スマホ用）：曜日ヘッダーをタップして開閉
   cards.forEach(card => {
     const header = card.querySelector('.schedule-card-header');
     if (!header) return;
@@ -242,15 +255,20 @@ if (dayBtns.length > 0) {
     });
   });
 
-  // 初期状態：スマホなら最初のカード（月曜）を開く
-  function setInitial() {
-    if (isMobile()) {
-      const hasOpen = Array.from(cards).some(c => c.classList.contains('open'));
-      if (!hasOpen) cards[0].classList.add('open');
-    }
+  // 初期状態：スマホなら今日の曜日のカードを開く（なければ月曜）
+  function openTodayOrFirst() {
+    if (!isMobile()) return;
+    const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
+    const todayName = dayNames[new Date().getDay()] + '曜日';
+    let target = Array.from(cards).find(c => {
+      const h = c.querySelector('.schedule-card-header');
+      return h && h.textContent.trim() === todayName;
+    });
+    if (!target) target = cards[0];
+    target.classList.add('open');
   }
 
-  setInitial();
+  openTodayOrFirst();
 })();
 
 /* ------------------------------------------
