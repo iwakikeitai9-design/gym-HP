@@ -244,10 +244,13 @@ if (dayBtns.length > 0) {
   const entries     = document.querySelectorAll('.sc-entry');
   if (legendItems.length === 0 && entries.length === 0) return;
 
+  const resetBtn = document.getElementById('scheduleFilterReset');
+
   // 全状態リセット
   function clearAll() {
     legendItems.forEach(l => l.classList.remove('active'));
     entries.forEach(e => e.classList.remove('dimmed', 'selected'));
+    if (resetBtn) resetBtn.classList.remove('visible');
   }
 
   // 凡例クリック → 該当クラス以外をdim
@@ -262,6 +265,7 @@ if (dayBtns.length > 0) {
         entries.forEach(e => {
           if (!e.classList.contains(colorClass)) e.classList.add('dimmed');
         });
+        if (resetBtn) resetBtn.classList.add('visible');
       }
     });
   });
@@ -271,9 +275,17 @@ if (dayBtns.length > 0) {
     entry.addEventListener('click', () => {
       const wasSelected = entry.classList.contains('selected');
       clearAll();
-      if (!wasSelected) entry.classList.add('selected');
+      if (!wasSelected) {
+        entry.classList.add('selected');
+        if (resetBtn) resetBtn.classList.add('visible');
+      }
     });
   });
+
+  // リセットボタン
+  if (resetBtn) {
+    resetBtn.addEventListener('click', clearAll);
+  }
 })();
 
 /* ------------------------------------------
