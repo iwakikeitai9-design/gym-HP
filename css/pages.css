@@ -563,15 +563,15 @@
   }
 
   .sc-entry time {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
   }
 
   .sc-entry-name {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
   }
 
   .sc-entry small {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
   }
 
   .legend-item {
@@ -656,8 +656,8 @@
 .sc-entry {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding: 9px 10px;
+  gap: 4px;
+  padding: 10px 12px;
   margin-bottom: 6px;
   border-radius: 6px;
   border-left: 4px solid transparent;
@@ -680,21 +680,21 @@
 }
 
 .sc-entry time {
-  font-size: 0.8rem;
-  color: #888;
+  font-size: 0.85rem;
+  color: #555;
   font-weight: 600;
   font-style: normal;
 }
 
 .sc-entry-name {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .sc-entry small {
-  font-size: 0.75rem;
-  color: #aaa;
+  font-size: 0.8rem;
+  color: #777;
 }
 
 /* エントリー色分け */
