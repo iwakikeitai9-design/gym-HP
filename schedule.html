@@ -77,10 +77,13 @@
           をご確認ください。
         </p>
 
-        <!-- スケジュールテーブル（JavaScriptで描画） -->
+        <!-- PC：テーブル表示 -->
         <div class="schedule-table-wrap" id="scheduleTableWrap"></div>
 
-        <!-- 凡例フィルター -->
+        <!-- スマホ：縦並びカード表示 -->
+        <div class="schedule-mobile-view" id="scheduleMobileView"></div>
+
+        <!-- 凡例フィルター（PC用） -->
         <div class="schedule-filter-section" id="scheduleFilterSection">
           <div class="schedule-filter-header">
             <span class="schedule-filter-label"><i class="fa-solid fa-filter"></i> クラスで絞り込む</span>
@@ -302,11 +305,12 @@
     }
   }
 
-  /* ---------- スケジュールテーブル描画 ---------- */
+  /* ---------- スケジュール描画（PC表＋スマホカード） ---------- */
   function renderSchedule(monthKey) {
-    const wrap   = document.getElementById('scheduleTableWrap');
-    const label  = document.getElementById('currentMonthLabel');
-    const legend = document.getElementById('scheduleLegend');
+    const wrap       = document.getElementById('scheduleTableWrap');
+    const mobileView = document.getElementById('scheduleMobileView');
+    const label      = document.getElementById('currentMonthLabel');
+    const legend     = document.getElementById('scheduleLegend');
     if (!wrap || !legend) return;
 
     const data = SCHEDULE_DATA[monthKey];
@@ -317,9 +321,8 @@
     const usedTypes = new Set();
     data.days.forEach(d => d.classes.forEach(c => usedTypes.add(c.type)));
 
-    /* テーブルHTML組み立て */
+    /* ---- PC：テーブル ---- */
     const headCells = data.days.map(d => `<th>${d.col}</th>`).join('');
-
     const dataCells = data.days.map(dayData => {
       const entries = dayData.classes.map(c => `
         <div class="sc-entry sc-${c.type}">
@@ -338,7 +341,27 @@
       </table>
     `;
 
-    /* 凡例組み立て */
+    /* ---- スマホ：縦並びカード ---- */
+    const DAY_LABELS = { '月':'月曜日','火':'火曜日','水':'水曜日','木':'木曜日','金':'金曜日','土':'土曜日','日':'日曜日' };
+    mobileView.innerHTML = data.days.map(dayData => {
+      const entries = dayData.classes.length === 0
+        ? `<p class="sched-m-empty">クラスなし</p>`
+        : dayData.classes.map(c => `
+            <div class="sc-entry sc-${c.type}">
+              <time>${c.time}</time>
+              <span class="sc-entry-name">${c.name}</span>
+              ${c.trainer ? `<small>${c.trainer}</small>` : ''}
+            </div>
+          `).join('');
+      return `
+        <div class="sched-m-day">
+          <div class="sched-m-day-header">${DAY_LABELS[dayData.col] || dayData.col}</div>
+          <div class="sched-m-day-body">${entries}</div>
+        </div>
+      `;
+    }).join('');
+
+    /* ---- 凡例 ---- */
     legend.innerHTML = LEGEND_ORDER
       .filter(t => usedTypes.has(t))
       .map(t => `<span class="legend-item sc-${t}">${LEGEND_LABELS[t]}</span>`)
