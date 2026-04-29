@@ -302,11 +302,12 @@ button {
 /* グローバルナビ */
 .global-nav ul {
   display: flex;
-  gap: 32px;
+  gap: 20px;
 }
 
 .global-nav a {
   font-weight: 500;
+  font-size: 0.92rem;
   color: var(--color-white); /* 透明時は白 */
   transition: color 0.3s;
   position: relative;
@@ -377,7 +378,7 @@ button {
 }
 
 .sp-nav.open {
-  max-height: 300px;
+  max-height: 500px;
 }
 
 .sp-nav ul {

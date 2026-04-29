@@ -3,56 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="北海道小樽市花園のキックボクシングジム「Desafio（デサフィオ）」公式サイト。初心者から競技者まで、本格的なキックボクシング指導を行っています。">
-  <!-- OGP設定（SNSでシェアされたときのサムネイル） -->
-  <meta property="og:title" content="Desafio Kickboxing Gym | 小樽のキックボクシングジム">
-  <meta property="og:description" content="北海道小樽市花園のキックボクシングジム。初心者から競技者まで本格指導。">
+  <meta name="description" content="Desafio（デサフィオ）の料金プラン一覧。入会金・月4回会員・フルタイム会員・キッズプランをご案内。">
+  <meta property="og:title" content="料金プラン | Desafio Kickboxing Gym">
+  <meta property="og:description" content="Desafioの料金プラン一覧。入会金・月4回会員・フルタイム会員・キッズプランをご案内。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://desafio-otaru-kickboxing.com/"><!-- ← デプロイ後にURLを変更してください -->
-  <meta property="og:image" content="https://desafio-otaru-kickboxing.com/images/gym-all.jpg"><!-- ← デプロイ後にURLを変更してください -->
-  <link rel="canonical" href="https://desafio-otaru-kickboxing.com/">
+  <meta property="og:url" content="https://desafio-otaru-kickboxing.com/pricing">
+  <meta property="og:image" content="https://desafio-otaru-kickboxing.com/images/gym-all.jpg">
+  <link rel="canonical" href="https://desafio-otaru-kickboxing.com/pricing">
   <link rel="icon" href="https://desafio-otaru-kickboxing.com/images/gym-logo.png" type="image/png">
   <link rel="apple-touch-icon" href="https://desafio-otaru-kickboxing.com/images/gym-logo.png">
-  <title>Desafio Kickboxing Gym | 小樽のキックボクシングジム</title>
-  <!-- Google Fonts -->
+  <title>料金プラン | Desafio Kickboxing Gym</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome（アイコン） -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- 共通CSS -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/pages.css">
 </head>
 <body>
-  <!-- ローディング画面 -->
-  <div id="loading">
-    <div class="loading-spinner"></div>
-  </div>
+  <div id="loading"><div class="loading-spinner"></div></div>
 
-  <!-- ヘッダー -->
   <header id="header">
     <div class="header-inner">
       <a href="./index.html" class="logo">Desafio</a>
       <nav class="global-nav">
         <ul>
-          <li><a href="./index.html" class="active">トップ</a></li>
+          <li><a href="./index.html">トップ</a></li>
           <li><a href="./about.html">ジム紹介</a></li>
-          <li><a href="./pricing.html">料金プラン</a></li>
+          <li><a href="./pricing.html" class="active">料金プラン</a></li>
           <li><a href="./schedule.html">スケジュール</a></li>
           <li><a href="./news.html">お知らせ</a></li>
           <li><a href="./parking.html">駐車場</a></li>
           <li><a href="./contact.html">お問い合わせ</a></li>
         </ul>
       </nav>
-      <!-- ハンバーガーメニューボタン（スマホ用） -->
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
-    <!-- スマホ用ナビ -->
     <nav class="sp-nav" id="sp-nav">
       <ul>
         <li><a href="./index.html">トップ</a></li>
@@ -67,78 +55,32 @@
   </header>
 
   <main>
-    <!-- セクション1：ヒーロー -->
-    <section class="hero" id="hero">
-      <div class="hero-bg" style="background-image: url('./images/gym-all.jpg'); background-color: var(--color-dark);"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="hero-catch fade-in-up">強く、楽しく、自分を超えろ。</h1>
-        <p class="hero-sub fade-in-up delay-1">小樽から世界へ。Desafioで、あなたの挑戦が始まる。</p>
-        <div class="hero-buttons fade-in-up delay-2">
-          <a href="./contact.html" class="btn btn-cta">無料体験を申し込む</a>
-          <a href="./about.html" class="btn btn-outline">ジムを詳しく見る</a>
-        </div>
+    <section class="page-hero page-hero--gradient">
+      <div class="page-hero-content">
+        <h1>料金プラン</h1>
+        <p>あなたのペースに合わせたプランをご用意しています。</p>
       </div>
     </section>
 
-    <!-- セクション2：選ばれる3つの理由 -->
-    <section class="reasons section fade-in-section">
+    <section class="section fade-in-section">
       <div class="container">
-        <h2 class="section-title">Desafioが選ばれる3つの理由</h2>
-        <div class="cards-3">
-          <div class="card card-hover">
-            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <h3>初心者でも安心</h3>
-            <p>丁寧な個別指導で、運動経験ゼロでも大丈夫。</p>
-          </div>
-          <div class="card card-hover">
-            <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
-            <h3>本格的な競技指導</h3>
-            <p>アマチュア大会から全国レベルまで対応した本格指導。</p>
-          </div>
-          <div class="card card-hover">
-            <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
-            <h3>アットホームな雰囲気</h3>
-            <p>年齢・目的を問わず、誰もが通いやすいジムです。</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <h2 class="section-title">料金について</h2>
 
-    <!-- セクション3：こんな方におすすめ -->
-    <section class="target section fade-in-section" style="background-color: var(--color-gray);">
-      <div class="container">
-        <h2 class="section-title">あなたにぴったりのジムです</h2>
-        <div class="cards-3">
-          <div class="card">
-            <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
-            <h3>ダイエット・健康を目指したい方</h3>
-            <p>キックボクシングは有酸素運動と筋トレが同時にできる最強のダイエット。</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><i class="fa-solid fa-child"></i></div>
-            <h3>子ども・学生の方</h3>
-            <p>礼儀・集中力・自信を身につけながら楽しく体を動かそう。</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><i class="fa-solid fa-medal"></i></div>
-            <h3>本格的に競技を目指したい方</h3>
-            <p>実績あるトレーナーが試合に向けて徹底サポート。</p>
-          </div>
+        <!-- 入会金インフォボックス -->
+        <div class="pricing-info-box">
+          <i class="fa-solid fa-circle-info"></i>
+          <p>入会の際には<strong>入会金（¥5,500・税込）</strong>が別途必要です。月会費に加えてご用意ください。<br>
+          月の途中からのご入会も随時受け付けています（日割り計算）。</p>
         </div>
-      </div>
-    </section>
 
-    <!-- セクション4：料金プラン -->
-    <section class="pricing section fade-in-section">
-      <div class="container">
-        <h2 class="section-title">料金プラン</h2>
+        <!-- 入会金 -->
+        <p class="pricing-section-label">入会金</p>
         <div class="pricing-table">
-
-          <!-- 入会金 -->
           <div class="pricing-row">
             <div class="pricing-row-header">
-              <span class="pricing-plan-name">入会金</span>
+              <span class="pricing-plan-name">
+                <i class="fa-solid fa-door-open" style="color:var(--color-primary);margin-right:8px;font-size:0.9em;"></i>入会金
+              </span>
               <span class="pricing-amount">¥5,500<small>（税込・初回のみ）</small></span>
               <button class="pricing-detail-btn" aria-expanded="false">詳細 <span class="pricing-arrow">▼</span></button>
             </div>
@@ -146,6 +88,7 @@
               <ul class="pricing-detail-list">
                 <li>入会時に一度だけお支払いいただく費用です</li>
                 <li>月会費とは別途必要となります</li>
+                <li>再入会の場合も入会金が必要です</li>
               </ul>
               <div class="pricing-plan-cta">
                 <a href="https://square.link/u/Y7BYcGYS?src=sheet" class="btn btn-cta" target="_blank" rel="noopener noreferrer">
@@ -154,6 +97,11 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- 月会費プラン -->
+        <p class="pricing-section-label" style="margin-top:40px;">月会費プラン</p>
+        <div class="pricing-table">
 
           <!-- 月4回会員 -->
           <div class="pricing-row">
@@ -230,6 +178,7 @@
                 <li>ご兄弟・姉妹2名でのお申し込み</li>
                 <li>通常 ¥5,500 × 2名 = ¥11,000 → ¥8,800 に割引</li>
                 <li>通い放題（キッズ対象）</li>
+                <li>キッズクラス参加可</li>
               </ul>
               <div class="pricing-plan-cta">
                 <a href="https://square.link/u/uSVeGZje" class="btn btn-cta" target="_blank" rel="noopener noreferrer">
@@ -240,38 +189,15 @@
           </div>
 
         </div>
-        <div style="text-align:center;margin-top:24px;">
-          <a href="./pricing.html" class="btn btn-primary">料金プランの詳細を見る</a>
-        </div>
+
+        <p class="pricing-footer-note">
+          ※すべての料金は税込表示です。<br>
+          ご不明な点は<a href="./contact.html">お問い合わせ</a>よりお気軽にどうぞ。
+        </p>
       </div>
     </section>
-
-    <!-- セクション5：アクセス -->
-    <section class="access section fade-in-section" style="background-color: var(--color-gray);">
-      <div class="container">
-        <h2 class="section-title">アクセス</h2>
-        <div class="access-inner">
-          <div class="access-info">
-            <p><strong>住所</strong><br>〒047-0024 北海道小樽市花園3-12-12 栄信ビル2F</p>
-            <p><strong>営業時間</strong><br>平日 18:00〜21:00<br>土日 オープンマット（フリー）10:00〜13:00</p>
-            <p><strong>電話番号</strong><br>080-1898-9329</p>
-          </div>
-          <div class="access-map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2908.9834501676596!2d141.0000603!3d43.1888581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0ae1ef61c66495%3A0xb2719f6114956e0b!2sDesafio-otaru!5e0!3m2!1sja!2sjp!4v1775363980635!5m2!1sja!2sjp"
-              width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Desafioキックボクシングジムの地図">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- セクション6：最新のお知らせ（お知らせがある場合はここに追加） -->
   </main>
 
-  <!-- フッター -->
   <footer class="footer">
     <div class="footer-inner container">
       <div class="footer-info">
@@ -302,55 +228,7 @@
     </div>
   </footer>
 
-  <!-- ページトップへ戻るボタン -->
   <button class="page-top" id="pageTop" aria-label="ページトップへ戻る">▲</button>
-
-  <!-- 共通JavaScript -->
   <script src="./js/main.js"></script>
-
-  <!-- 構造化データ（ローカルビジネス情報をGoogleに伝える） -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SportsActivityLocation",
-    "name": "Desafio Kickboxing Gym",
-    "description": "北海道小樽市花園のキックボクシングジム。初心者から競技者まで本格指導。キッズクラスあり。無料体験受付中。",
-    "url": "https://desafio-otaru-kickboxing.com/",
-    "telephone": "080-1898-9329",
-    "email": "desafio.otaru@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "花園3-12-12 栄信ビル2F",
-      "addressLocality": "小樽市",
-      "addressRegion": "北海道",
-      "postalCode": "047-0024",
-      "addressCountry": "JP"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 43.1888581,
-      "longitude": 141.0000603
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "18:00",
-        "closes": "21:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Saturday", "Sunday"],
-        "opens": "10:00",
-        "closes": "13:00"
-      }
-    ],
-    "sameAs": [
-      "https://www.instagram.com/desafio_otaru_kickboxing/"
-    ],
-    "image": "https://desafio-otaru-kickboxing.com/images/gym-all.jpg",
-    "priceRange": "¥5,500〜¥7,700"
-  }
-  </script>
 </body>
 </html>

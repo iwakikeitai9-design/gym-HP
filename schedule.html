@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Desafio（デサフィオ）のクラススケジュール。月ごとのスケジュールをご確認いただけます。">
+  <meta property="og:title" content="クラススケジュール | Desafio Kickboxing Gym">
+  <meta property="og:description" content="Desafioのクラススケジュール。月ごとのスケジュールをご確認いただけます。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://desafio-otaru-kickboxing.com/schedule">
+  <meta property="og:image" content="https://desafio-otaru-kickboxing.com/images/gym-all.jpg">
+  <link rel="canonical" href="https://desafio-otaru-kickboxing.com/schedule">
+  <link rel="icon" href="https://desafio-otaru-kickboxing.com/images/gym-logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://desafio-otaru-kickboxing.com/images/gym-logo.png">
+  <title>クラススケジュール | Desafio Kickboxing Gym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/pages.css">
+</head>
+<body>
+  <div id="loading"><div class="loading-spinner"></div></div>
+
+  <header id="header">
+    <div class="header-inner">
+      <a href="./index.html" class="logo">Desafio</a>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./pricing.html">料金プラン</a></li>
+          <li><a href="./schedule.html" class="active">スケジュール</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./parking.html">駐車場</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="sp-nav" id="sp-nav">
+      <ul>
+        <li><a href="./index.html">トップ</a></li>
+        <li><a href="./about.html">ジム紹介</a></li>
+        <li><a href="./pricing.html">料金プラン</a></li>
+        <li><a href="./schedule.html">スケジュール</a></li>
+        <li><a href="./news.html">お知らせ</a></li>
+        <li><a href="./parking.html">駐車場</a></li>
+        <li><a href="./contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero page-hero--simple">
+      <div class="page-hero-content">
+        <h1>クラススケジュール</h1>
+        <p>月ごとのスケジュールをご確認いただけます。</p>
+      </div>
+    </section>
+
+    <section class="section fade-in-section" style="background-color: var(--color-gray);">
+      <div class="container">
+
+        <!-- 月セレクター -->
+        <div class="month-selector-wrap">
+          <div class="month-selector" id="monthSelector">
+            <!-- JavaScriptで動的に生成 -->
+          </div>
+          <p class="month-selector-label" id="currentMonthLabel">読み込み中...</p>
+        </div>
+
+        <p class="schedule-note">
+          ※スケジュールは変更になる場合があります。最新情報は
+          <a href="https://www.instagram.com/desafio_otaru_kickboxing/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          をご確認ください。
+        </p>
+
+        <!-- スケジュールグリッド（JavaScriptで描画） -->
+        <div class="schedule-grid" id="scheduleGrid"></div>
+
+        <!-- 凡例 -->
+        <div class="schedule-legend-new" id="scheduleLegend"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-info">
+        <p class="footer-logo">Desafio</p>
+        <p>〒047-0024 北海道小樽市花園3-12-12 栄信ビル2F</p>
+        <p>TEL：080-1898-9329</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./pricing.html">料金プラン</a></li>
+          <li><a href="./schedule.html">スケジュール</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./parking.html">駐車場</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="footer-sns">
+        <a href="https://www.instagram.com/desafio_otaru_kickboxing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          Instagram
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <a href="./contact.html" class="btn btn-cta">無料体験を申し込む</a>
+      <p class="copyright">© 2026 Desafio Kickboxing Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="page-top" id="pageTop" aria-label="ページトップへ戻る">▲</button>
+  <script src="./js/main.js"></script>
+  <script>
+  /* ==========================================
+     スケジュールページ専用スクリプト
+  ========================================== */
+
+  /* ---------- スケジュールデータ定義 ---------- */
+  const SCHEDULE_DATA = {
+    '2026-04': {
+      label: '2026年4月',
+      days: [
+        {
+          day: '月曜日',
+          classes: [
+            { time: '17:00〜18:15', name: 'キッズキックボクシング',   trainer: '岩城', type: 'kids'      },
+            { time: '18:30〜19:45', name: 'ビギナーキックボクシング', trainer: '岩城', type: 'beginner'  },
+            { time: '20:00〜21:00', name: 'MMA',                      trainer: '小林', type: 'mma'       },
+            { time: '21:00〜22:30', name: 'グラップリング',           trainer: '',     type: 'grappling' }
+          ]
+        },
+        {
+          day: '火曜日',
+          classes: [
+            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '辻',   type: 'kick' },
+            { time: '20:45〜22:30', name: 'BJJ',              trainer: '小林', type: 'bjj'  }
+          ]
+        },
+        {
+          day: '水曜日',
+          classes: [
+            { time: '17:30〜18:45', name: 'キッズキックボクシング',   trainer: '岩城', type: 'kids'     },
+            { time: '19:00〜19:45', name: 'レディースキック',         trainer: '岩城', type: 'ladies'   },
+            { time: '20:00〜21:15', name: 'ビギナーキックボクシング', trainer: '岩城', type: 'beginner' }
+          ]
+        },
+        {
+          day: '木曜日',
+          classes: [
+            { time: '16:30〜18:00', name: 'キッズBJJ', trainer: '小林', type: 'kids-bjj' },
+            { time: '18:30〜20:00', name: 'BJJ',        trainer: '小林', type: 'bjj'      }
+          ]
+        },
+        {
+          day: '金曜日',
+          classes: [
+            { time: '17:30〜18:45', name: 'キッズキックボクシング', trainer: '岩城', type: 'kids' },
+            { time: '19:00〜20:00', name: 'キックボクシング',       trainer: '岩城', type: 'kick' },
+            { time: '20:15〜22:00', name: 'BJJ',                    trainer: '小林', type: 'bjj'  }
+          ]
+        },
+        {
+          day: '土曜日',
+          classes: [
+            { time: '14:30〜16:00', name: 'キッズBJJ',              trainer: '小林', type: 'kids-bjj' },
+            { time: '17:00〜18:15', name: 'ビギナーキックボクシング', trainer: '岩城', type: 'beginner' },
+            { time: '18:30〜19:30', name: 'キックボクシング',        trainer: '岩城', type: 'kick'     },
+            { time: '20:30〜22:00', name: 'BJJ',                    trainer: '宮保', type: 'bjj'      }
+          ]
+        },
+        {
+          day: '日曜日',
+          classes: [
+            { time: '9:00〜10:30',  name: 'キッズBJJ', trainer: '小林', type: 'kids-bjj' },
+            { time: '10:30〜12:30', name: 'BJJ',        trainer: '小林', type: 'bjj'      }
+          ]
+        }
+      ]
+    },
+
+    '2026-05': {
+      label: '2026年5月',
+      days: [
+        {
+          day: '月曜日',
+          classes: [
+            { time: '17:00〜18:15', name: 'キッズキックボクシング',   trainer: '岩城', type: 'kids'     },
+            { time: '18:30〜19:45', name: 'ビギナーキックボクシング', trainer: '岩城', type: 'beginner' }
+          ]
+        },
+        {
+          day: '火曜日',
+          classes: [
+            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '辻', type: 'kick' }
+          ]
+        },
+        {
+          day: '水曜日',
+          classes: [
+            { time: '17:30〜18:45', name: 'キッズキックボクシング',   trainer: '岩城', type: 'kids'     },
+            { time: '19:00〜19:40', name: 'レディースキック',         trainer: '岩城', type: 'ladies'   },
+            { time: '20:00〜21:10', name: 'ビギナーキックボクシング', trainer: '岩城', type: 'beginner' }
+          ]
+        },
+        /* 木曜日：予定なし（省略） */
+        {
+          day: '金曜日',
+          classes: [
+            { time: '17:30〜18:45', name: 'キッズキックボクシング', trainer: '岩城', type: 'kids' },
+            { time: '19:00〜20:00', name: 'キックボクシング',       trainer: '岩城', type: 'kick' }
+          ]
+        },
+        {
+          day: '土曜日',
+          classes: [
+            { time: '17:00〜18:15', name: 'ビギナーキックボクシング', trainer: '岩城', type: 'beginner' },
+            { time: '18:30〜19:30', name: 'キックボクシング',        trainer: '岩城', type: 'kick'     }
+          ]
+        }
+        /* 日曜日：予定なし（省略） */
+      ]
+    }
+  };
+
+  /* ---------- クラスタイプ → 表示名 マッピング ---------- */
+  const CLASS_LABELS = {
+    'kick':      'キックボクシング',
+    'beginner':  'ビギナーキック',
+    'kids':      'キッズキック',
+    'ladies':    'レディース',
+    'bjj':       'BJJ',
+    'kids-bjj':  'キッズBJJ',
+    'mma':       'MMA',
+    'grappling': 'グラップリング'
+  };
+
+  /* ---------- スケジュール描画 ---------- */
+  function renderSchedule(monthKey) {
+    const grid   = document.getElementById('scheduleGrid');
+    const label  = document.getElementById('currentMonthLabel');
+    const legend = document.getElementById('scheduleLegend');
+    if (!grid) return;
+
+    const data = SCHEDULE_DATA[monthKey];
+    if (!data) return;
+
+    if (label) label.textContent = data.label + 'のスケジュール';
+
+    grid.innerHTML   = '';
+    legend.innerHTML = '';
+
+    const usedTypes = new Set();
+
+    data.days.forEach(dayData => {
+      const card = document.createElement('div');
+      card.className = 'schedule-card';
+
+      /* 曜日ヘッダー */
+      const header = document.createElement('div');
+      header.className = 'schedule-card-header';
+      header.textContent = dayData.day;
+
+      /* クラスリスト */
+      const classList = document.createElement('div');
+      classList.className = 'schedule-card-classes';
+
+      dayData.classes.forEach(cls => {
+        usedTypes.add(cls.type);
+
+        const item = document.createElement('div');
+        item.className = 'sc-class sc-' + cls.type;
+
+        const time = document.createElement('span');
+        time.className = 'sc-time';
+        time.textContent = cls.time;
+
+        const name = document.createElement('span');
+        name.className = 'sc-name';
+        name.textContent = cls.name;
+
+        const trainer = document.createElement('span');
+        trainer.className = 'sc-trainer';
+        if (cls.trainer) trainer.textContent = cls.trainer;
+
+        item.appendChild(time);
+        item.appendChild(name);
+        item.appendChild(trainer);
+
+        /* クラスクリックでハイライト */
+        item.addEventListener('click', () => {
+          const wasSelected = item.classList.contains('selected');
+          classList.querySelectorAll('.sc-class').forEach(c => c.classList.remove('selected'));
+          if (!wasSelected) item.classList.add('selected');
+        });
+
+        classList.appendChild(item);
+      });
+
+      card.appendChild(header);
+      card.appendChild(classList);
+      grid.appendChild(card);
+
+      /* スマホ：ヘッダークリックでアコーディオン */
+      header.addEventListener('click', () => {
+        card.classList.toggle('open');
+      });
+    });
+
+    /* 凡例を描画（使われているタイプだけ表示） */
+    const typeOrder = ['kick','beginner','kids','ladies','bjj','kids-bjj','mma','grappling'];
+    typeOrder.forEach(type => {
+      if (!usedTypes.has(type)) return;
+      const item = document.createElement('span');
+      item.className = 'scl-item sc-' + type;
+      item.textContent = CLASS_LABELS[type] || type;
+      legend.appendChild(item);
+    });
+  }
+
+  /* ---------- 月ボタン生成 ---------- */
+  function buildMonthButtons() {
+    const selector = document.getElementById('monthSelector');
+    if (!selector) return;
+
+    const months = Object.keys(SCHEDULE_DATA).sort();
+
+    /* デフォルト：最新月 */
+    let current = months[months.length - 1];
+
+    months.forEach(key => {
+      const data = SCHEDULE_DATA[key];
+      const btn = document.createElement('button');
+      btn.className = 'month-btn' + (key === current ? ' active' : '');
+      btn.dataset.month = key;
+      btn.textContent = data.label;
+      btn.addEventListener('click', () => {
+        selector.querySelectorAll('.month-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderSchedule(key);
+      });
+      selector.appendChild(btn);
+    });
+
+    renderSchedule(current);
+  }
+
+  buildMonthButtons();
+  </script>
+</body>
+</html>

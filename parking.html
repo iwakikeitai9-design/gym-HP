@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Desafio（デサフィオ）の駐車場案内。ジム専用駐車場・第二駐車場の場所と利用可能時間帯をご確認ください。">
+  <meta property="og:title" content="駐車場案内 | Desafio Kickboxing Gym">
+  <meta property="og:description" content="Desafioの駐車場案内。ジム専用駐車場・第二駐車場の場所と利用時間帯。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://desafio-otaru-kickboxing.com/parking">
+  <meta property="og:image" content="https://desafio-otaru-kickboxing.com/images/parking.jpg">
+  <link rel="canonical" href="https://desafio-otaru-kickboxing.com/parking">
+  <link rel="icon" href="https://desafio-otaru-kickboxing.com/images/gym-logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://desafio-otaru-kickboxing.com/images/gym-logo.png">
+  <title>駐車場案内 | Desafio Kickboxing Gym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/pages.css">
+</head>
+<body>
+  <div id="loading"><div class="loading-spinner"></div></div>
+
+  <header id="header">
+    <div class="header-inner">
+      <a href="./index.html" class="logo">Desafio</a>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./pricing.html">料金プラン</a></li>
+          <li><a href="./schedule.html">スケジュール</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./parking.html" class="active">駐車場</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="sp-nav" id="sp-nav">
+      <ul>
+        <li><a href="./index.html">トップ</a></li>
+        <li><a href="./about.html">ジム紹介</a></li>
+        <li><a href="./pricing.html">料金プラン</a></li>
+        <li><a href="./schedule.html">スケジュール</a></li>
+        <li><a href="./news.html">お知らせ</a></li>
+        <li><a href="./parking.html">駐車場</a></li>
+        <li><a href="./contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero page-hero--simple">
+      <div class="page-hero-content">
+        <h1>駐車場案内</h1>
+        <p>ご来館の際の駐車場についてご確認ください。</p>
+      </div>
+    </section>
+
+    <section class="section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">駐車場のご案内</h2>
+
+        <!-- 注意事項バナー -->
+        <div class="parking-alert">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p>上記の利用時間以外で駐車場を利用しないでください。<br>
+          駐車場内での盗難や事故などについては責任を負いかねます。</p>
+        </div>
+
+        <!-- 案内図 -->
+        <div class="parking-map-wrap">
+          <img
+            src="./images/parking.jpg"
+            alt="Desafio駐車場案内図"
+            class="parking-map-img"
+            loading="lazy"
+          >
+        </div>
+
+        <!-- 駐車場詳細 -->
+        <div class="parking-info-grid">
+
+          <div class="parking-info-card">
+            <div class="parking-info-card-header">
+              <i class="fa-solid fa-square-parking"></i>
+              <h3>ジム専用駐車場（1〜7番）</h3>
+            </div>
+            <ul class="parking-info-list">
+              <li><i class="fa-solid fa-check"></i> ジム会員専用の駐車スペースです</li>
+              <li><i class="fa-solid fa-check"></i> <strong>緑色の番号（1〜7）</strong>の区画のみ駐車可能</li>
+              <li><i class="fa-solid fa-xmark"></i> 斜線が書かれている区画には駐車しないでください</li>
+              <li><i class="fa-solid fa-circle-info"></i> その他の区画はおがた整骨院の駐車場です</li>
+            </ul>
+            <div class="parking-hours">
+              <p class="parking-hours-label">利用時間</p>
+              <p>いつでもご利用いただけます</p>
+            </div>
+          </div>
+
+          <div class="parking-info-card">
+            <div class="parking-info-card-header">
+              <i class="fa-solid fa-square-parking"></i>
+              <h3>第二駐車場（a〜c番）</h3>
+            </div>
+            <ul class="parking-info-list">
+              <li><i class="fa-solid fa-check"></i> <strong>a・b・c番</strong>の区画をご利用いただけます</li>
+              <li><i class="fa-solid fa-circle-info"></i> おがた整骨院が閉院している時間帯のみ利用可能です</li>
+            </ul>
+            <div class="parking-hours">
+              <p class="parking-hours-label">利用可能時間</p>
+              <table class="parking-hours-table">
+                <tr>
+                  <th>平日</th>
+                  <td><span class="parking-unavailable">利用不可</span></td>
+                </tr>
+                <tr>
+                  <th>土曜日</th>
+                  <td>17:00 以降</td>
+                </tr>
+                <tr>
+                  <th>日曜・祝日</th>
+                  <td>17:00 以降</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-info">
+        <p class="footer-logo">Desafio</p>
+        <p>〒047-0024 北海道小樽市花園3-12-12 栄信ビル2F</p>
+        <p>TEL：080-1898-9329</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="./index.html">トップ</a></li>
+          <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./pricing.html">料金プラン</a></li>
+          <li><a href="./schedule.html">スケジュール</a></li>
+          <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./parking.html">駐車場</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="footer-sns">
+        <a href="https://www.instagram.com/desafio_otaru_kickboxing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          Instagram
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <a href="./contact.html" class="btn btn-cta">無料体験を申し込む</a>
+      <p class="copyright">© 2026 Desafio Kickboxing Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="page-top" id="pageTop" aria-label="ページトップへ戻る">▲</button>
+  <script src="./js/main.js"></script>
+</body>
+</html>

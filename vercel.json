@@ -1,9 +1,12 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/about.html", "destination": "/about", "permanent": true },
-    { "source": "/news.html", "destination": "/news", "permanent": true },
-    { "source": "/contact.html", "destination": "/contact", "permanent": true }
+    { "source": "/index.html",   "destination": "/",         "permanent": true },
+    { "source": "/about.html",   "destination": "/about",    "permanent": true },
+    { "source": "/news.html",    "destination": "/news",     "permanent": true },
+    { "source": "/contact.html", "destination": "/contact",  "permanent": true },
+    { "source": "/pricing.html", "destination": "/pricing",  "permanent": true },
+    { "source": "/schedule.html","destination": "/schedule", "permanent": true },
+    { "source": "/parking.html", "destination": "/parking",  "permanent": true }
   ]
 }

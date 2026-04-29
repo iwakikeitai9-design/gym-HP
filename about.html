@@ -38,7 +38,10 @@
         <ul>
           <li><a href="./index.html">トップ</a></li>
           <li><a href="./about.html" class="active">ジム紹介</a></li>
+          <li><a href="./pricing.html">料金プラン</a></li>
+          <li><a href="./schedule.html">スケジュール</a></li>
           <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./parking.html">駐車場</a></li>
           <li><a href="./contact.html">お問い合わせ</a></li>
         </ul>
       </nav>
@@ -52,7 +55,10 @@
       <ul>
         <li><a href="./index.html">トップ</a></li>
         <li><a href="./about.html">ジム紹介</a></li>
+        <li><a href="./pricing.html">料金プラン</a></li>
+        <li><a href="./schedule.html">スケジュール</a></li>
         <li><a href="./news.html">お知らせ</a></li>
+        <li><a href="./parking.html">駐車場</a></li>
         <li><a href="./contact.html">お問い合わせ</a></li>
       </ul>
     </nav>
@@ -159,91 +165,20 @@
       </div>
     </section>
 
-    <!-- セクション：クラススケジュール -->
+    <!-- セクション：クラススケジュール（専用ページへ誘導） -->
     <section class="schedule section fade-in-section" style="background-color: var(--color-gray);">
       <div class="container">
         <h2 class="section-title">クラススケジュール</h2>
-        <p class="schedule-note">※スケジュールは変更になる場合があります。最新情報は<a href="https://www.instagram.com/desafio_otaru_kickboxing/" target="_blank" rel="noopener noreferrer">Instagram</a>をご確認ください。</p>
-
-        <!-- 全画面共通：7列スケジュール表（横スクロール対応） -->
-        <div class="schedule-table-wrap">
-          <table class="schedule-table">
-            <thead>
-              <tr>
-                <th>月</th>
-                <th>火</th>
-                <th>水</th>
-                <th>木</th>
-                <th>金</th>
-                <th>土</th>
-                <th>日</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <!-- 月曜 -->
-                <td class="day-col">
-                  <div class="sc-entry sc-kids"><time>17:00〜18:15</time><span class="sc-entry-name">キッズキック</span><small>岩城</small></div>
-                  <div class="sc-entry sc-beginner"><time>18:30〜19:45</time><span class="sc-entry-name">ビギナー</span><small>岩城</small></div>
-                  <div class="sc-entry sc-mma"><time>20:00〜21:00</time><span class="sc-entry-name">MMA</span><small>小林</small></div>
-                  <div class="sc-entry sc-grappling"><time>21:00〜22:30</time><span class="sc-entry-name">グラップリング</span><small></small></div>
-                </td>
-                <!-- 火曜 -->
-                <td class="day-col">
-                  <div class="sc-entry sc-kick"><time>19:00〜20:00</time><span class="sc-entry-name">キックボクシング</span><small>辻</small></div>
-                  <div class="sc-entry sc-bjj"><time>20:45〜22:30</time><span class="sc-entry-name">BJJ</span><small>小林</small></div>
-                </td>
-                <!-- 水曜 -->
-                <td class="day-col">
-                  <div class="sc-entry sc-kids"><time>17:30〜18:45</time><span class="sc-entry-name">キッズキック</span><small>岩城</small></div>
-                  <div class="sc-entry sc-ladies"><time>19:00〜19:45</time><span class="sc-entry-name">レディース</span><small>岩城</small></div>
-                  <div class="sc-entry sc-beginner"><time>20:00〜21:15</time><span class="sc-entry-name">ビギナー</span><small>岩城</small></div>
-                </td>
-                <!-- 木曜 -->
-                <td class="day-col">
-                  <div class="sc-entry sc-kids-bjj"><time>16:30〜18:00</time><span class="sc-entry-name">キッズBJJ</span><small>小林</small></div>
-                  <div class="sc-entry sc-bjj"><time>18:30〜20:00</time><span class="sc-entry-name">BJJ</span><small>小林</small></div>
-                </td>
-                <!-- 金曜 -->
-                <td class="day-col">
-                  <div class="sc-entry sc-kids"><time>17:30〜18:45</time><span class="sc-entry-name">キッズキック</span><small>岩城</small></div>
-                  <div class="sc-entry sc-kick"><time>19:00〜20:00</time><span class="sc-entry-name">キックボクシング</span><small>岩城</small></div>
-                  <div class="sc-entry sc-bjj"><time>20:15〜22:00</time><span class="sc-entry-name">BJJ</span><small>小林</small></div>
-                </td>
-                <!-- 土曜 -->
-                <td class="day-col">
-                  <div class="sc-entry sc-kids-bjj"><time>14:30〜16:00</time><span class="sc-entry-name">キッズBJJ</span><small>小林</small></div>
-                  <div class="sc-entry sc-beginner"><time>17:00〜18:15</time><span class="sc-entry-name">ビギナー</span><small>岩城</small></div>
-                  <div class="sc-entry sc-kick"><time>18:30〜19:30</time><span class="sc-entry-name">キックボクシング</span><small>岩城</small></div>
-                  <div class="sc-entry sc-bjj"><time>20:30〜22:00</time><span class="sc-entry-name">BJJ</span><small>宮保</small></div>
-                </td>
-                <!-- 日曜 -->
-                <td class="day-col">
-                  <div class="sc-entry sc-kids-bjj"><time>9:00〜10:30</time><span class="sc-entry-name">キッズBJJ</span><small>小林</small></div>
-                  <div class="sc-entry sc-bjj"><time>10:30〜12:30</time><span class="sc-entry-name">BJJ</span><small>小林</small></div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 凡例フィルター -->
-        <div class="schedule-filter-section">
-          <div class="schedule-filter-header">
-            <span class="schedule-filter-label"><i class="fa-solid fa-filter"></i> クラスで絞り込む</span>
-            <button class="schedule-filter-reset" id="scheduleFilterReset" aria-label="フィルターをリセット">すべて表示</button>
-          </div>
-          <div class="schedule-legend">
-            <span class="legend-item sc-kick">キックボクシング</span>
-            <span class="legend-item sc-beginner">ビギナー</span>
-            <span class="legend-item sc-kids">キッズキック</span>
-            <span class="legend-item sc-ladies">レディース</span>
-            <span class="legend-item sc-bjj">BJJ</span>
-            <span class="legend-item sc-kids-bjj">キッズBJJ</span>
-            <span class="legend-item sc-mma">MMA</span>
-            <span class="legend-item sc-grappling">グラップリング</span>
-          </div>
-          <p class="schedule-filter-hint">タップするとそのクラスだけ表示されます</p>
+        <p class="schedule-note">
+          月ごとのスケジュールを専用ページでご確認いただけます。<br>
+          ※スケジュールは変更になる場合があります。最新情報は
+          <a href="https://www.instagram.com/desafio_otaru_kickboxing/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          もご確認ください。
+        </p>
+        <div style="text-align:center;margin-top:32px;">
+          <a href="./schedule.html" class="btn btn-primary" style="font-size:1.05rem;padding:16px 48px;">
+            <i class="fa-solid fa-calendar-days" style="margin-right:8px;"></i>スケジュールを確認する
+          </a>
         </div>
       </div>
     </section>
@@ -333,7 +268,10 @@
         <ul>
           <li><a href="./index.html">トップ</a></li>
           <li><a href="./about.html">ジム紹介</a></li>
+          <li><a href="./pricing.html">料金プラン</a></li>
+          <li><a href="./schedule.html">スケジュール</a></li>
           <li><a href="./news.html">お知らせ</a></li>
+          <li><a href="./parking.html">駐車場</a></li>
           <li><a href="./contact.html">お問い合わせ</a></li>
         </ul>
       </nav>
