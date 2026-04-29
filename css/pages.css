@@ -547,35 +547,31 @@
 
 /* スマホでも全曜日テーブルを表示（横スクロール対応） */
 @media (max-width: 767px) {
-  .schedule-table {
-    min-width: 560px;
-  }
-
   .schedule-table thead th {
-    font-size: 0.92rem;
-    padding: 12px 4px;
-    letter-spacing: 0.04em;
+    font-size: 0.9rem;
+    padding: 12px 3px;
+    letter-spacing: 0.02em;
   }
 
   .day-col {
-    padding: 5px 4px;
+    padding: 5px 3px;
   }
 
   .sc-entry {
-    padding: 7px 7px;
+    padding: 7px 6px;
     margin-bottom: 4px;
   }
 
   .sc-entry time {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
   }
 
   .sc-entry-name {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
   }
 
   .sc-entry small {
-    font-size: 0.68rem;
+    font-size: 0.72rem;
   }
 
   .legend-item {
@@ -609,7 +605,7 @@
 }
 
 /* スマホ向け横スクロールヒント */
-@media (max-width: 620px) {
+@media (max-width: 767px) {
   .schedule-table-wrap::before {
     content: '← 横にスクロールできます →';
     display: block;
@@ -625,8 +621,9 @@
 .schedule-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 700px;
+  min-width: 560px;
   background: #fff;
+  table-layout: fixed; /* 列数に関係なく均等幅 */
 }
 
 .schedule-table thead th {
@@ -648,7 +645,7 @@
   vertical-align: top;
   padding: 8px;
   border-right: 1px solid #f0f0f0;
-  width: calc(100% / 7);
+  /* widthはtable-layout:fixedが均等配分するので指定不要 */
 }
 
 .day-col:last-child {
@@ -1275,16 +1272,17 @@
 }
 
 .month-btn {
-  padding: 10px 28px;
+  padding: 10px 24px;
   border: 2px solid #ccc;
   border-radius: 30px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   font-family: var(--font-sans);
   color: #555;
   background: var(--color-white);
   cursor: pointer;
   transition: all 0.25s;
+  white-space: nowrap;
 }
 
 .month-btn:hover {
@@ -1339,17 +1337,23 @@
   background: #f5f5f5;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 40px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.12);
   text-align: center;
 }
 
 .parking-map-img {
-  max-width: 100%;
-  width: auto;
-  max-height: 80vh;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
   margin: 0 auto;
   display: block;
+}
+
+@media (max-width: 767px) {
+  .parking-map-wrap {
+    border-radius: 8px;
+    margin: 0 -8px; /* コンテナ幅より少し広く */
+  }
 }
 
 .parking-info-grid {
