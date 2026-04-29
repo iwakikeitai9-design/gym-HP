@@ -872,10 +872,30 @@
   /* テーブルを非表示 → カードを表示 */
   .schedule-table-wrap      { display: none; }
   .schedule-filter-section  { display: none; }
+
+  /* 横スワイプカルーセル */
   .schedule-mobile-view {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     gap: 12px;
+    padding: 4px 20px 16px;
+    margin: 0 -24px;           /* コンテナ余白を無視して全幅に */
+    scroll-padding-left: 20px;
+    -ms-overflow-style: none;  /* IE/Edge スクロールバー非表示 */
+    scrollbar-width: none;     /* Firefox スクロールバー非表示 */
+  }
+
+  .schedule-mobile-view::-webkit-scrollbar {
+    display: none;             /* Chrome/Safari スクロールバー非表示 */
+  }
+
+  /* 各カードは画面幅の80%、右端に次のカードが少し見える */
+  .sched-m-day {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
   }
 
   /* sc-entryのモバイル調整 */
@@ -883,21 +903,14 @@
     padding: 10px 12px;
     margin-bottom: 0;
   }
-  .schedule-mobile-view .sc-entry time {
-    font-size: 0.82rem;
-  }
-  .schedule-mobile-view .sc-entry-name {
-    font-size: 0.92rem;
-  }
-  .schedule-mobile-view .sc-entry small {
-    font-size: 0.78rem;
-  }
+  .schedule-mobile-view .sc-entry time      { font-size: 0.82rem; }
+  .schedule-mobile-view .sc-entry-name      { font-size: 0.95rem; }
+  .schedule-mobile-view .sc-entry small     { font-size: 0.78rem; }
 }
 
 @media (max-width: 420px) {
-  .schedule-mobile-view {
-    grid-template-columns: 1fr;
-  }
+  /* 小型スマホは少し広めに */
+  .sched-m-day { flex: 0 0 86%; }
 }
 
 /* ------------------------------------------
