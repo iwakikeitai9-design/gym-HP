@@ -545,39 +545,54 @@
   padding: 20px;
 }
 
-/* スマホでも全曜日テーブルを表示（横スクロール対応） */
+/* スワイプ案内（スマホのみ表示） */
+.stl-swipe-hint {
+  display: none;
+}
+
+/* スマホ：時刻軸は固定、曜日列を横スワイプ */
 @media (max-width: 767px) {
-  .schedule-table thead th {
-    font-size: 0.9rem;
-    padding: 12px 3px;
-    letter-spacing: 0.02em;
-  }
-
-  .day-col {
-    padding: 5px 3px;
-  }
-
-  .sc-entry {
-    padding: 7px 6px;
-    margin-bottom: 4px;
-  }
-
-  .sc-entry time {
+  .stl-swipe-hint {
+    display: block;
+    text-align: center;
     font-size: 0.78rem;
+    color: #999;
+    margin-bottom: 10px;
+  }
+  .stl-swipe-hint i {
+    color: var(--color-primary);
+    margin-right: 5px;
   }
 
-  .sc-entry-name {
-    font-size: 0.88rem;
+  .stl-days {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .stl-days::-webkit-scrollbar { display: none; }
+
+  .stl-day {
+    flex: 0 0 42%;
+    scroll-snap-align: start;
   }
 
-  .sc-entry small {
-    font-size: 0.75rem;
-  }
+  .stl-day-header { font-size: 1rem; }
+
+  .sc-entry        { left: 3px; right: 3px; padding: 6px 7px; }
+  .sc-entry time   { font-size: 0.72rem; }
+  .sc-entry-name   { font-size: 0.85rem; }
+  .sc-entry small  { font-size: 0.72rem; }
 
   .legend-item {
     font-size: 0.82rem;
     padding: 5px 12px;
   }
+}
+
+@media (max-width: 420px) {
+  .stl-day { flex: 0 0 50%; }
 }
 
 .schedule-note {
@@ -595,106 +610,155 @@
   text-underline-offset: 3px;
 }
 
-.schedule-table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+/* ------------------------------------------
+   スケジュール：タイムライン（時刻軸つき週表示）
+   ------------------------------------------ */
+.schedule-timeline {
   margin-bottom: 20px;
+}
+
+.stl-grid {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* 左の時刻軸（横スクロールしても固定） */
+.stl-axis {
+  flex: 0 0 54px;
+  position: relative;
+  background: #fff;
+  border-right: 1px solid #eee;
+  z-index: 2;
+}
+
+.stl-axis-header {
+  height: 46px;
+  background: var(--color-dark);
+}
+
+.stl-axis-track {
   position: relative;
 }
 
-/* スマホ向け横スクロールヒント */
-@media (max-width: 767px) {
-  .schedule-table-wrap::before {
-    content: '← 横にスクロールできます →';
-    display: block;
-    text-align: center;
-    font-size: 0.75rem;
-    color: #999;
-    padding: 6px 0;
-    background: #f8f9fa;
-    border-radius: 12px 12px 0 0;
-  }
+.stl-hour-label {
+  position: absolute;
+  right: 8px;
+  transform: translateY(-50%);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #94a3b8;
+  white-space: nowrap;
 }
 
-.schedule-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 560px;
-  background: #fff;
-  table-layout: fixed; /* 列数に関係なく均等幅 */
+/* 曜日列の並び */
+.stl-days {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-.schedule-table thead th {
+.stl-day {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.stl-day-header {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--color-dark);
   color: var(--color-white);
   font-weight: 700;
   font-size: 1.05rem;
-  padding: 14px 8px;
-  text-align: center;
   letter-spacing: 0.1em;
   border-right: 1px solid #3a4a5c;
 }
 
-.schedule-table thead th:last-child {
-  border-right: none;
-}
+.stl-day:last-child .stl-day-header { border-right: none; }
 
-.day-col {
-  vertical-align: top;
-  padding: 8px;
+/* 土曜は青系、日曜は赤系で見出しに色味を */
+.stl-day:nth-last-child(2) .stl-day-header { color: #8fc0ff; }
+.stl-day:last-child .stl-day-header        { color: #ff9d9d; }
+
+.stl-day-track {
+  position: relative;
   border-right: 1px solid #f0f0f0;
-  /* widthはtable-layout:fixedが均等配分するので指定不要 */
 }
 
-.day-col:last-child {
-  border-right: none;
+.stl-day:last-child .stl-day-track { border-right: none; }
+
+/* 時刻の罫線 */
+.stl-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #f1f3f5;
+  pointer-events: none;
 }
 
-/* テーブル内クラスエントリー */
+/* クラスのない曜日 */
+.stl-day-empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #dcdcdc;
+  font-size: 1.4rem;
+}
+
+/* タイムライン上のクラスブロック（開始時刻の位置に絶対配置） */
 .sc-entry {
+  position: absolute;
+  left: 4px;
+  right: 4px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 10px 12px;
-  margin-bottom: 6px;
-  border-radius: 6px;
+  gap: 2px;
+  padding: 7px 9px;
+  border-radius: 7px;
   border-left: 4px solid transparent;
-  transition: opacity 0.15s, transform 0.1s;
+  overflow: hidden;
   cursor: pointer;
-}
-
-.sc-entry:last-child {
-  margin-bottom: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  transition: opacity 0.2s, transform 0.12s, box-shadow 0.2s, filter 0.2s;
+  z-index: 1;
 }
 
 .sc-entry:hover {
-  opacity: 0.8;
-  transform: translateX(2px);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+  z-index: 3;
 }
 
 .sc-entry.selected {
   outline: 2px solid currentColor;
-  outline-offset: 1px;
+  outline-offset: -1px;
+  z-index: 3;
 }
 
 .sc-entry time {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: #555;
   font-weight: 600;
   font-style: normal;
+  line-height: 1.2;
 }
 
 .sc-entry-name {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.25;
 }
 
 .sc-entry small {
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   color: #777;
+  line-height: 1.1;
 }
 
 /* エントリー色分け */
@@ -807,19 +871,9 @@
 }
 
 /* 凡例フィルター：非該当エントリーを薄く */
-.sc-entry {
-  transition: opacity 0.2s, transform 0.1s, filter 0.2s;
-}
-
 .sc-entry.dimmed {
-  opacity: 0.15;
+  opacity: 0.18;
   filter: grayscale(0.6);
-}
-
-/* 個別エントリー選択ハイライト */
-.sc-entry.selected {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
 }
 
 .legend-item.sc-kick      { background: #fff1f0; color: #C0392B; border-color: #C0392B; }
@@ -830,88 +884,6 @@
 .legend-item.sc-kids-bjj  { background: #f0fdf4; color: #1a7a4a; border-color: #1a7a4a; }
 .legend-item.sc-mma       { background: #f1f5f9; color: #1e293b; border-color: #475569; }
 .legend-item.sc-grappling { background: #ecfeff; color: #0e7490; border-color: #0e7490; }
-
-/* ------------------------------------------
-   スケジュール：スマホ用縦並びカード
-   ------------------------------------------ */
-.schedule-mobile-view {
-  display: none; /* PCでは非表示 */
-}
-
-.sched-m-day {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
-
-.sched-m-day-header {
-  background: var(--color-dark);
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 12px 16px;
-  letter-spacing: 0.08em;
-}
-
-.sched-m-day-body {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.sched-m-empty {
-  color: #bbb;
-  font-size: 0.85rem;
-  text-align: center;
-  padding: 14px 0;
-}
-
-@media (max-width: 767px) {
-  /* テーブルを非表示 → カードを表示 */
-  .schedule-table-wrap      { display: none; }
-  .schedule-filter-section  { display: none; }
-
-  /* 横スワイプカルーセル */
-  .schedule-mobile-view {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 12px;
-    padding: 4px 20px 16px;
-    margin: 0 -24px;           /* コンテナ余白を無視して全幅に */
-    scroll-padding-left: 20px;
-    -ms-overflow-style: none;  /* IE/Edge スクロールバー非表示 */
-    scrollbar-width: none;     /* Firefox スクロールバー非表示 */
-  }
-
-  .schedule-mobile-view::-webkit-scrollbar {
-    display: none;             /* Chrome/Safari スクロールバー非表示 */
-  }
-
-  /* 各カードは画面幅の44%、2枚同時に見えて右端に次のカードが少し見える */
-  .sched-m-day {
-    flex: 0 0 44%;
-    scroll-snap-align: start;
-  }
-
-  /* sc-entryのモバイル調整 */
-  .schedule-mobile-view .sc-entry {
-    padding: 10px 12px;
-    margin-bottom: 0;
-  }
-  .schedule-mobile-view .sc-entry time      { font-size: 0.82rem; }
-  .schedule-mobile-view .sc-entry-name      { font-size: 0.95rem; }
-  .schedule-mobile-view .sc-entry small     { font-size: 0.78rem; }
-}
-
-@media (max-width: 420px) {
-  /* 小型スマホは少し広めに */
-  .sched-m-day { flex: 0 0 48%; }
-}
 
 /* ------------------------------------------
    スケジュール：曜日カードグリッド

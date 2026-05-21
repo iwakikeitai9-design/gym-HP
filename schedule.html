@@ -77,13 +77,13 @@
           をご確認ください。
         </p>
 
-        <!-- PC：テーブル表示 -->
-        <div class="schedule-table-wrap" id="scheduleTableWrap"></div>
+        <!-- スマホ：横スクロールのヒント -->
+        <p class="stl-swipe-hint"><i class="fa-solid fa-arrows-left-right"></i> 横にスワイプで他の曜日へ</p>
 
-        <!-- スマホ：縦並びカード表示 -->
-        <div class="schedule-mobile-view" id="scheduleMobileView"></div>
+        <!-- タイムライン表示（PC・スマホ共通） -->
+        <div class="schedule-timeline" id="scheduleTimeline"></div>
 
-        <!-- 凡例フィルター（PC用） -->
+        <!-- 凡例フィルター -->
         <div class="schedule-filter-section" id="scheduleFilterSection">
           <div class="schedule-filter-header">
             <span class="schedule-filter-label"><i class="fa-solid fa-filter"></i> クラスで絞り込む</span>
@@ -356,12 +356,27 @@
     }
   }
 
-  /* ---------- スケジュール描画（PC表＋スマホカード） ---------- */
+  /* ---------- 時刻パース（"17:00〜18:15" → [1020, 1095]） ---------- */
+  function classRange(timeStr) {
+    const parts = timeStr.split(/[〜～]/);
+    if (parts.length !== 2) return null;
+    const toMin = s => {
+      const [h, m] = s.trim().split(':').map(Number);
+      return h * 60 + m;
+    };
+    return [toMin(parts[0]), toMin(parts[1])];
+  }
+
+  /* 1時間あたりのピクセル高さ・最小ブロック高さ・上下の余白 */
+  const PX_PER_HOUR = 76;
+  const MIN_BLOCK_H = 58;
+  const TOP_PAD     = 12;
+
+  /* ---------- スケジュール描画（タイムライン：PC・スマホ共通） ---------- */
   function renderSchedule(monthKey) {
-    const wrap       = document.getElementById('scheduleTableWrap');
-    const mobileView = document.getElementById('scheduleMobileView');
-    const label      = document.getElementById('currentMonthLabel');
-    const legend     = document.getElementById('scheduleLegend');
+    const wrap   = document.getElementById('scheduleTimeline');
+    const label  = document.getElementById('currentMonthLabel');
+    const legend = document.getElementById('scheduleLegend');
     if (!wrap || !legend) return;
 
     const data = SCHEDULE_DATA[monthKey];
@@ -369,48 +384,60 @@
 
     if (label) label.textContent = data.label + 'のスケジュール';
 
-    const usedTypes = new Set();
-    data.days.forEach(d => d.classes.forEach(c => usedTypes.add(c.type)));
+    /* ---- 表示する時間帯を、その月のクラスから自動算出 ---- */
+    let minStart = Infinity, maxEnd = -Infinity;
+    data.days.forEach(d => d.classes.forEach(c => {
+      const r = classRange(c.time);
+      if (r) { minStart = Math.min(minStart, r[0]); maxEnd = Math.max(maxEnd, r[1]); }
+    }));
+    if (!isFinite(minStart)) { minStart = 17 * 60; maxEnd = 22 * 60; }
 
-    /* ---- PC：テーブル ---- */
-    const headCells = data.days.map(d => `<th>${d.col}</th>`).join('');
-    const dataCells = data.days.map(dayData => {
-      const entries = dayData.classes.map(c => `
-        <div class="sc-entry sc-${c.type}">
-          <time>${c.time}</time>
-          <span class="sc-entry-name">${c.name}</span>
-          ${c.trainer ? `<small>${c.trainer}</small>` : ''}
-        </div>
-      `).join('');
-      return `<td class="day-col">${entries}</td>`;
+    const startHour = Math.floor(minStart / 60);
+    const endHour   = Math.ceil(maxEnd / 60);
+    const gridStart = startHour * 60;
+    const totalH    = (endHour - startHour) * PX_PER_HOUR + TOP_PAD * 2;
+
+    /* ---- 時刻軸ラベル＋各列の罫線 ---- */
+    let axisHTML = '', linesHTML = '';
+    for (let h = startHour; h <= endHour; h++) {
+      const top = (h - startHour) * PX_PER_HOUR + TOP_PAD;
+      axisHTML  += `<span class="stl-hour-label" style="top:${top}px">${h}:00</span>`;
+      linesHTML += `<div class="stl-line" style="top:${top}px"></div>`;
+    }
+
+    /* ---- 曜日ごとの列 ---- */
+    const usedTypes = new Set();
+    const daysHTML = data.days.map(dayData => {
+      const blocks = dayData.classes.map(c => {
+        const r = classRange(c.time);
+        if (!r) return '';
+        usedTypes.add(c.type);
+        const top = (r[0] - gridStart) / 60 * PX_PER_HOUR + TOP_PAD;
+        const h   = Math.max((r[1] - r[0]) / 60 * PX_PER_HOUR, MIN_BLOCK_H);
+        return `
+          <div class="sc-entry sc-${c.type}" style="top:${top}px;height:${h}px">
+            <time>${c.time}</time>
+            <span class="sc-entry-name">${c.name}</span>
+            ${c.trainer ? `<small>${c.trainer}</small>` : ''}
+          </div>`;
+      }).join('');
+      const empty = dayData.classes.length === 0
+        ? `<span class="stl-day-empty">―</span>` : '';
+      return `
+        <div class="stl-day">
+          <div class="stl-day-header">${dayData.col}</div>
+          <div class="stl-day-track" style="height:${totalH}px">${linesHTML}${blocks}${empty}</div>
+        </div>`;
     }).join('');
 
     wrap.innerHTML = `
-      <table class="schedule-table">
-        <thead><tr>${headCells}</tr></thead>
-        <tbody><tr>${dataCells}</tr></tbody>
-      </table>
-    `;
-
-    /* ---- スマホ：縦並びカード ---- */
-    const DAY_LABELS = { '月':'月曜日','火':'火曜日','水':'水曜日','木':'木曜日','金':'金曜日','土':'土曜日','日':'日曜日' };
-    mobileView.innerHTML = data.days.map(dayData => {
-      const entries = dayData.classes.length === 0
-        ? `<p class="sched-m-empty">クラスなし</p>`
-        : dayData.classes.map(c => `
-            <div class="sc-entry sc-${c.type}">
-              <time>${c.time}</time>
-              <span class="sc-entry-name">${c.name}</span>
-              ${c.trainer ? `<small>${c.trainer}</small>` : ''}
-            </div>
-          `).join('');
-      return `
-        <div class="sched-m-day">
-          <div class="sched-m-day-header">${DAY_LABELS[dayData.col] || dayData.col}</div>
-          <div class="sched-m-day-body">${entries}</div>
+      <div class="stl-grid">
+        <div class="stl-axis">
+          <div class="stl-axis-header"></div>
+          <div class="stl-axis-track" style="height:${totalH}px">${axisHTML}</div>
         </div>
-      `;
-    }).join('');
+        <div class="stl-days">${daysHTML}</div>
+      </div>`;
 
     /* ---- 凡例 ---- */
     legend.innerHTML = LEGEND_ORDER
