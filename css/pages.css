@@ -545,54 +545,9 @@
   padding: 20px;
 }
 
-/* スワイプ案内（スマホのみ表示） */
+/* スワイプ案内（スマホのみ表示／実際の表示はタイムラインCSSの後の@mediaで） */
 .stl-swipe-hint {
   display: none;
-}
-
-/* スマホ：時刻軸は固定、曜日列を横スワイプ */
-@media (max-width: 767px) {
-  .stl-swipe-hint {
-    display: block;
-    text-align: center;
-    font-size: 0.78rem;
-    color: #999;
-    margin-bottom: 10px;
-  }
-  .stl-swipe-hint i {
-    color: var(--color-primary);
-    margin-right: 5px;
-  }
-
-  .stl-days {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .stl-days::-webkit-scrollbar { display: none; }
-
-  .stl-day {
-    flex: 0 0 42%;
-    scroll-snap-align: start;
-  }
-
-  .stl-day-header { font-size: 1rem; }
-
-  .sc-entry        { left: 3px; right: 3px; padding: 6px 7px; }
-  .sc-entry time   { font-size: 0.72rem; }
-  .sc-entry-name   { font-size: 0.85rem; }
-  .sc-entry small  { font-size: 0.72rem; }
-
-  .legend-item {
-    font-size: 0.82rem;
-    padding: 5px 12px;
-  }
-}
-
-@media (max-width: 420px) {
-  .stl-day { flex: 0 0 50%; }
 }
 
 .schedule-note {
@@ -709,6 +664,7 @@
   transform: translate(-50%, -50%);
   color: #dcdcdc;
   font-size: 1.4rem;
+  z-index: 0;
 }
 
 /* タイムライン上のクラスブロック（開始時刻の位置に絶対配置） */
@@ -884,6 +840,64 @@
 .legend-item.sc-kids-bjj  { background: #f0fdf4; color: #1a7a4a; border-color: #1a7a4a; }
 .legend-item.sc-mma       { background: #f1f5f9; color: #1e293b; border-color: #475569; }
 .legend-item.sc-grappling { background: #ecfeff; color: #0e7490; border-color: #0e7490; }
+
+/* ------------------------------------------
+   スケジュール：タイムラインのスマホ対応
+   （基本スタイルより後に置き、スマホで確実に上書き）
+   ------------------------------------------ */
+@media (max-width: 767px) {
+  .stl-swipe-hint {
+    display: block;
+    text-align: center;
+    font-size: 0.78rem;
+    color: #999;
+    margin-bottom: 10px;
+  }
+  .stl-swipe-hint i {
+    color: var(--color-primary);
+    margin-right: 5px;
+  }
+
+  /* 時刻軸はやや細く */
+  .stl-axis { flex: 0 0 46px; }
+  .stl-hour-label { font-size: 0.68rem; right: 6px; }
+
+  /* 曜日列を横スワイプできるように */
+  .stl-days {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .stl-days::-webkit-scrollbar { display: none; }
+
+  /* 1画面に約2.5列。残りは横スワイプ */
+  .stl-day {
+    flex: 0 0 40%;
+    scroll-snap-align: start;
+  }
+
+  .stl-day-header {
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+
+  .sc-entry        { left: 3px; right: 3px; padding: 6px 7px; gap: 1px; }
+  .sc-entry time   { font-size: 0.7rem; }
+  .sc-entry-name   { font-size: 0.82rem; line-height: 1.2; }
+  .sc-entry small  { font-size: 0.7rem; }
+
+  .legend-item {
+    font-size: 0.8rem;
+    padding: 5px 12px;
+  }
+}
+
+/* 小型スマホは1画面に2列 */
+@media (max-width: 420px) {
+  .stl-day { flex: 0 0 48%; }
+}
 
 /* ------------------------------------------
    スケジュール：曜日カードグリッド
