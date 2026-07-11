@@ -726,6 +726,7 @@
 .sc-entry.sc-kids-bjj  { background: #f0fdf4; border-left-color: #1a7a4a; }
 .sc-entry.sc-mma       { background: #f1f5f9; border-left-color: #475569; }
 .sc-entry.sc-grappling { background: #ecfeff; border-left-color: #0e7490; }
+.sc-entry.sc-mass      { background: #fff0f6; border-left-color: #d6336c; }
 
 /* エントリー内クラス名の色 */
 .sc-entry.sc-kick .sc-entry-name      { color: #C0392B; }
@@ -736,6 +737,7 @@
 .sc-entry.sc-kids-bjj .sc-entry-name  { color: #1a7a4a; }
 .sc-entry.sc-mma .sc-entry-name       { color: #1e293b; }
 .sc-entry.sc-grappling .sc-entry-name { color: #0e7490; }
+.sc-entry.sc-mass .sc-entry-name      { color: #c02561; }
 
 /* 凡例フィルターセクション */
 .schedule-filter-section {
@@ -840,6 +842,7 @@
 .legend-item.sc-kids-bjj  { background: #f0fdf4; color: #1a7a4a; border-color: #1a7a4a; }
 .legend-item.sc-mma       { background: #f1f5f9; color: #1e293b; border-color: #475569; }
 .legend-item.sc-grappling { background: #ecfeff; color: #0e7490; border-color: #0e7490; }
+.legend-item.sc-mass      { background: #fff0f6; color: #c02561; border-color: #d6336c; }
 
 /* ------------------------------------------
    スケジュール：タイムラインのスマホ対応
@@ -1028,6 +1031,10 @@
 .sc-grappling .sc-name    { color: #0e7490; }
 .sc-grappling.selected    { background: #ecfeff; }
 
+.sc-mass              { border-left-color: #d6336c; }
+.sc-mass .sc-name     { color: #c02561; }
+.sc-mass.selected     { background: #fff0f6; }
+
 /* ------------------------------------------
    凡例（クラス種別バッジ）
    ------------------------------------------ */
@@ -1059,6 +1066,7 @@
 .scl-item.sc-kids-bjj  { background: #f0fdf4; color: #1a7a4a; border-color: #1a7a4a; }
 .scl-item.sc-mma       { background: #f1f5f9; color: #1e293b; border-color: #475569; }
 .scl-item.sc-grappling { background: #ecfeff; color: #0e7490; border-color: #0e7490; }
+.scl-item.sc-mass      { background: #fff0f6; color: #c02561; border-color: #d6336c; }
 
 /* ------------------------------------------
    スケジュールレスポンシブ
