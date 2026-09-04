@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Desafio（デサフィオ）のクラススケジュール。月ごとのスケジュールをご確認いただけます。">
+  <meta name="description" content="Desafio（デサフィオ）のクラススケジュール。毎週のクラススケジュールをご確認いただけます。">
   <meta property="og:title" content="クラススケジュール | Desafio Kickboxing Gym">
-  <meta property="og:description" content="Desafioのクラススケジュール。月ごとのスケジュールをご確認いただけます。">
+  <meta property="og:description" content="Desafioのクラススケジュール。毎週のクラススケジュールをご確認いただけます。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://desafio-otaru-kickboxing.com/schedule">
   <meta property="og:image" content="https://desafio-otaru-kickboxing.com/images/gym-all.jpg">
@@ -58,17 +58,16 @@
     <section class="page-hero page-hero--simple">
       <div class="page-hero-content">
         <h1>クラススケジュール</h1>
-        <p>月ごとのスケジュールをご確認いただけます。</p>
+        <p>毎週のクラススケジュールをご確認いただけます。</p>
       </div>
     </section>
 
     <section class="section fade-in-section" style="background-color: var(--color-gray);">
       <div class="container">
 
-        <!-- 月セレクター -->
+        <!-- 週間スケジュール見出し -->
         <div class="month-selector-wrap">
-          <div class="month-selector" id="monthSelector"></div>
-          <p class="month-selector-label" id="currentMonthLabel">読み込み中...</p>
+          <p class="month-selector-label" id="currentMonthLabel">週間スケジュール</p>
         </div>
 
         <p class="schedule-note">
@@ -134,271 +133,57 @@
      スケジュールページ専用スクリプト
   ========================================== */
 
-  /* ---------- スケジュールデータ定義 ---------- */
-  const SCHEDULE_DATA = {
-    '2026-04': {
-      label: '2026年4月',
-      days: [
-        {
-          col: '月',
-          classes: [
-            { time: '17:00〜18:15', name: 'キッズクラス',   trainer: '岩城', type: 'kids'      },
-            { time: '18:30〜19:45', name: 'ビギナーキック',       trainer: '岩城', type: 'beginner'  },
-            { time: '20:00〜21:00', name: 'MMA',            trainer: '小林', type: 'mma'       },
-            { time: '21:00〜22:30', name: 'グラップリング', trainer: '',     type: 'grappling' }
-          ]
-        },
-        {
-          col: '火',
-          classes: [
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '辻',   type: 'kick' },
-            { time: '20:45〜22:30', name: 'BJJ',              trainer: '小林', type: 'bjj'  }
-          ]
-        },
-        {
-          col: '水',
-          classes: [
-            { time: '17:30〜18:45', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
-            { time: '19:00〜19:45', name: 'レディースキック',   trainer: '岩城', type: 'ladies'   },
-            { time: '20:00〜21:15', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '木',
-          classes: [
-            { time: '16:30〜18:00', name: 'キッズBJJ', trainer: '小林', type: 'kids-bjj' },
-            { time: '18:30〜20:00', name: 'BJJ',        trainer: '小林', type: 'bjj'      }
-          ]
-        },
-        {
-          col: '金',
-          classes: [
-            { time: '17:30〜18:45', name: 'キッズクラス',    trainer: '岩城', type: 'kids' },
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '岩城', type: 'kick' },
-            { time: '20:15〜22:00', name: 'BJJ',             trainer: '小林', type: 'bjj'  }
-          ]
-        },
-        {
-          col: '土',
-          classes: [
-            { time: '14:30〜16:00', name: 'キッズBJJ', trainer: '小林', type: 'kids-bjj' },
-            { time: '17:00〜18:15', name: 'ビギナーキック',   trainer: '岩城', type: 'beginner' },
-            { time: '18:30〜19:30', name: 'キックボクシング', trainer: '岩城', type: 'kick' },
-            { time: '20:30〜22:00', name: 'BJJ',        trainer: '宮保', type: 'bjj'      }
-          ]
-        },
-        {
-          col: '日',
-          classes: [
-            { time: '9:00〜10:30',  name: 'キッズBJJ', trainer: '小林', type: 'kids-bjj' },
-            { time: '10:30〜12:30', name: 'BJJ',        trainer: '小林', type: 'bjj'      }
-          ]
-        }
-      ]
-    },
-
-    '2026-05': {
-      label: '2026年5月',
-      days: [
-        {
-          col: '月',
-          classes: [
-            { time: '17:00〜18:15', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
-            { time: '18:30〜19:45', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '火',
-          classes: [
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '辻', type: 'kick' }
-          ]
-        },
-        {
-          col: '水',
-          classes: [
-            { time: '17:30〜18:45', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
-            { time: '19:00〜19:40', name: 'レディースキック',   trainer: '岩城', type: 'ladies'   },
-            { time: '20:00〜21:10', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        /* 木：予定なし */
-        {
-          col: '木',
-          classes: []
-        },
-        {
-          col: '金',
-          classes: [
-            { time: '17:30〜18:45', name: 'キッズクラス',    trainer: '岩城', type: 'kids' },
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '岩城', type: 'kick' }
-          ]
-        },
-        {
-          col: '土',
-          classes: [
-            { time: '17:00〜18:15', name: 'ビギナーキック',        trainer: '岩城', type: 'beginner' },
-            { time: '18:30〜19:30', name: 'キックボクシング', trainer: '岩城', type: 'kick'     }
-          ]
-        },
-        {
-          col: '日',
-          classes: []
-        }
-      ]
-    },
-
-    '2026-06': {
-      label: '2026年6月',
-      days: [
-        {
-          col: '月',
-          classes: [
-            { time: '17:00〜18:15', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
-            { time: '18:30〜19:45', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '火',
-          classes: [
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '辻', type: 'kick' }
-          ]
-        },
-        {
-          col: '水',
-          classes: [
-            { time: '17:30〜18:45', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
-            { time: '19:00〜19:40', name: 'レディースキック',   trainer: '岩城', type: 'ladies'   },
-            { time: '20:00〜21:10', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '木',
-          classes: [
-            { time: '19:00〜20:00', name: 'ビギナーキック', trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '金',
-          classes: [
-            { time: '17:30〜18:45', name: 'キッズクラス',    trainer: '岩城', type: 'kids' },
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '岩城', type: 'kick' }
-          ]
-        },
-        {
-          col: '土',
-          classes: [
-            { time: '17:00〜18:15', name: 'ビギナーキック',        trainer: '岩城', type: 'beginner' },
-            { time: '18:30〜19:30', name: 'キックボクシング', trainer: '岩城', type: 'kick'     }
-          ]
-        },
-        {
-          col: '日',
-          classes: []
-        }
-      ]
-    },
-
-    '2026-07': {
-      label: '2026年7月',
-      days: [
-        {
-          col: '月',
-          classes: [
-            { time: '17:00〜18:10', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
-            { time: '18:30〜19:40', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '火',
-          classes: [
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '辻', type: 'kick' }
-          ]
-        },
-        {
-          col: '水',
-          classes: [
-            { time: '17:30〜18:40', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
-            { time: '19:00〜19:40', name: 'レディースキック',   trainer: '岩城', type: 'ladies'   },
-            { time: '20:00〜21:10', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '木',
-          classes: [
-            { time: '19:00〜20:00', name: 'ビギナーキック', trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '金',
-          classes: [
-            { time: '17:30〜18:40', name: 'キッズクラス',    trainer: '岩城', type: 'kids' },
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '岩城', type: 'kick' }
-          ]
-        },
-        {
-          col: '土',
-          classes: [
-            { time: '17:00〜18:00', name: 'ビギナーキック',            trainer: '岩城', type: 'beginner' },
-            { time: '18:15〜19:00', name: 'マススパー＆フリーミット', trainer: '岩城', type: 'mass'     }
-          ]
-        },
-        {
-          col: '日',
-          classes: []
-        }
-      ]
-    },
-
-    '2026-08': {
-      label: '2026年8月',
-      days: [
-        {
-          col: '月',
-          classes: [
-            { time: '17:00〜18:10', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
-            { time: '18:30〜19:40', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '火',
-          classes: [
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '辻', type: 'kick' }
-          ]
-        },
-        {
-          col: '水',
-          classes: [
-            { time: '17:30〜18:40', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
-            { time: '19:00〜19:40', name: 'レディースキック',   trainer: '岩城', type: 'ladies'   },
-            { time: '20:00〜21:10', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '木',
-          classes: [
-            { time: '19:00〜20:00', name: 'ビギナーキック', trainer: '岩城', type: 'beginner' }
-          ]
-        },
-        {
-          col: '金',
-          classes: [
-            { time: '17:30〜18:40', name: 'キッズクラス',    trainer: '岩城', type: 'kids' },
-            { time: '19:00〜20:00', name: 'キックボクシング', trainer: '岩城', type: 'kick' }
-          ]
-        },
-        {
-          col: '土',
-          classes: [
-            { time: '17:00〜18:00', name: 'ビギナーキック',            trainer: '岩城', type: 'beginner' },
-            { time: '18:15〜19:00', name: 'マススパー＆フリーミット', trainer: '岩城', type: 'mass'     }
-          ]
-        },
-        {
-          col: '日',
-          classes: []
-        }
-      ]
-    }
+  /* ---------- 週間スケジュールデータ定義 ----------
+     毎週このスケジュールで固定です。
+     内容を変えたいときは、下の days の各クラスを編集してください。 */
+  const WEEKLY_SCHEDULE = {
+    days: [
+      {
+        col: '月',
+        classes: [
+          { time: '17:00〜18:10', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
+          { time: '18:30〜19:40', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
+        ]
+      },
+      {
+        col: '火',
+        classes: [
+          { time: '19:00〜20:00', name: 'キックボクシング', trainer: '辻', type: 'kick' }
+        ]
+      },
+      {
+        col: '水',
+        classes: [
+          { time: '17:30〜18:40', name: 'キッズクラス', trainer: '岩城', type: 'kids'     },
+          { time: '19:00〜19:40', name: 'レディースキック',   trainer: '岩城', type: 'ladies'   },
+          { time: '20:00〜21:10', name: 'ビギナーキック',     trainer: '岩城', type: 'beginner' }
+        ]
+      },
+      {
+        col: '木',
+        classes: [
+          { time: '19:00〜20:00', name: 'ビギナーキック', trainer: '岩城', type: 'beginner' }
+        ]
+      },
+      {
+        col: '金',
+        classes: [
+          { time: '17:30〜18:40', name: 'キッズクラス',    trainer: '岩城', type: 'kids' },
+          { time: '19:00〜20:00', name: 'キックボクシング', trainer: '岩城', type: 'kick' }
+        ]
+      },
+      {
+        col: '土',
+        classes: [
+          { time: '17:00〜18:00', name: 'ビギナーキック',            trainer: '岩城', type: 'beginner' },
+          { time: '18:15〜19:00', name: 'マススパー＆フリーミット', trainer: '岩城', type: 'mass'     }
+        ]
+      },
+      {
+        col: '日',
+        classes: []
+      }
+    ]
   };
 
   /* ---------- 凡例ラベル ---------- */
@@ -477,18 +262,14 @@
   const TOP_PAD     = 12;
 
   /* ---------- スケジュール描画（タイムライン：PC・スマホ共通） ---------- */
-  function renderSchedule(monthKey) {
+  function renderSchedule() {
     const wrap   = document.getElementById('scheduleTimeline');
-    const label  = document.getElementById('currentMonthLabel');
     const legend = document.getElementById('scheduleLegend');
     if (!wrap || !legend) return;
 
-    const data = SCHEDULE_DATA[monthKey];
-    if (!data) return;
+    const data = WEEKLY_SCHEDULE;
 
-    if (label) label.textContent = data.label + 'のスケジュール';
-
-    /* ---- 表示する時間帯を、その月のクラスから自動算出 ---- */
+    /* ---- 表示する時間帯を、クラスから自動算出 ---- */
     let minStart = Infinity, maxEnd = -Infinity;
     data.days.forEach(d => d.classes.forEach(c => {
       const r = classRange(c.time);
@@ -565,29 +346,8 @@
     initFilter();
   }
 
-  /* ---------- 月ボタン生成 ---------- */
-  (function buildMonthButtons() {
-    const selector = document.getElementById('monthSelector');
-    if (!selector) return;
-
-    const months  = Object.keys(SCHEDULE_DATA).sort();
-    const current = months[months.length - 1];
-
-    months.forEach(key => {
-      const btn = document.createElement('button');
-      btn.className   = 'month-btn' + (key === current ? ' active' : '');
-      btn.dataset.month = key;
-      btn.textContent = SCHEDULE_DATA[key].label;
-      btn.addEventListener('click', () => {
-        selector.querySelectorAll('.month-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderSchedule(key);
-      });
-      selector.appendChild(btn);
-    });
-
-    renderSchedule(current);
-  })();
+  /* ---------- 描画（週間スケジュールで固定） ---------- */
+  renderSchedule();
   </script>
 </body>
 </html>
