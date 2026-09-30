@@ -1291,6 +1291,73 @@
   font-weight: 700;
 }
 
+/* 無料体験・見学のご案内（contact） */
+.trial-info {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  color: #1e3a5f;
+  line-height: 1.8;
+}
+
+.trial-info-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: #1e40af;
+  margin: 0 0 12px;
+}
+
+.trial-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.trial-info-card {
+  background: #fff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  padding: 18px 22px;
+}
+
+.trial-info-card h3 {
+  font-size: 1.05rem;
+  color: #1e40af;
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eff6ff;
+}
+
+.trial-info-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.trial-info-card li {
+  font-size: 0.95rem;
+  padding: 3px 0;
+}
+
+.trial-info-note {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 4px 0 0;
+}
+
+@media (max-width: 600px) {
+  .trial-info {
+    padding: 22px 20px;
+  }
+  .trial-info-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
 .pricing-section-label {
   font-family: var(--font-serif);
   font-size: 1rem;
